@@ -1,61 +1,325 @@
--- --------------------------------------------------------
--- Διακομιστής:                  127.0.0.1
--- Έκδοση διακομιστή:            11.4.0-MariaDB - mariadb.org binary distribution
--- Λειτ. σύστημα διακομιστή:     Win64
--- HeidiSQL Έκδοση:              12.3.0.6589
--- --------------------------------------------------------
+INSERT INTO `national_cuisine` (`cuisine_name`) VALUES
+	('American'),
+	('Brazilian'),
+	('Chinese'),
+	('Ethiopian'),
+	('French'),
+	('Greek'),
+	('Indian'),
+	('Israeli'),
+	('Italian'),
+	('Japanese'),
+	('Korean'),
+	('Latin American'),
+	('Lebanese'),
+	('Mexican'),
+	('Moroccan'),
+	('Spanish'),
+	('Thai'),
+	('Vietnamese'),
+	('Turkish'),
+	('Russian');
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+INSERT INTO `food_groups` (`group_name`, `group_description`) VALUES
+	('Vegetables', 'A vegetable is the edible portion of a plant.'),
+	('Fruits', 'A fruit is a mature, ripened ovary, along with the contents of the ovary.'),
+	('Cereal and Potatoes', 'Cereals and potatoes group includes pasta, bread and bakery products, rice, barley, corn, as well as other minor cereals and tubers such as sweet potatoes and topinambur.'),
+	('Milk and Dairy Products', 'Dairy products or milk products, also known as lacticinia, are food products made from (or containing) milk.'),
+	('Legumes', 'A legume refers to any plant from the Fabaceae family that would include its leaves, stems, and pods. A pulse is the edible seed from a legume plant. Pulses include beans, lentils, and peas.'),
+	('Red Meat', 'Red meat refers to fresh unprocessed mammalian muscle meat (e.g. beef, veal, pork, lamb, mutton, horse, or goat meat), which may be minced or frozen, and is usually consumed cooked.'),
+	('White Meat', 'In culinary terms, white meat is meat which is pale in color before and after cooking.'),
+	('Eggs', 'Bird and reptile eggs consist of a protective eggshell, albumen (egg white), and vitellus (egg yolk), contained within various thin membranes.'),
+	('Fish and Seafood', 'Seafood encompasses all commercially obtained freshwater and saltwater fish, molluscan shellfish, and crustaceans.'),
+	('Added fats and oils, olives and nuts', 'This group includes added fats and oils such as butter, margarine, olive oil, and nut oils, as well as olives and various types of nuts.');
 
--- Dumping database structure for cooking
-CREATE DATABASE IF NOT EXISTS `cooking1` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
-USE `cooking1`;
+INSERT INTO `ingredients` (`ingredient_name`, `calories_per_gram`, `group_name`) VALUES
+	('Apple', 1, 'Fruits'),
+	('Apples', 1, 'Fruits'),
+	('Avocado', 4, 'Fruits'),
+	('Bacon', 5, 'Red Meat'),
+	('Baguette', 2, 'Cereal and Potatoes'),
+	('Balsamic glaze', 1, 'Added fats and oils, olives and nuts'),
+	('Basil leaves', 1, 'Vegetables'),
+	('Basmati rice', 2, 'Cereal and Potatoes'),
+	('BBQ Sauce', 2, 'Added fats and oils, olives and nuts'),
+	('Bean sprouts', 1, 'Vegetables'),
+	('Beef', 3, 'Red Meat'),
+	('Beef broth', 3, 'Red Meat'),
+	('Beer', 4, 'Added fats and oils, olives and nuts'),
+	('Bell peppers', 1, 'Vegetables'),
+	('Berbere Spice', 0, NULL),
+	('Black beans', 3, 'Legumes'),
+	('Black olives', 5, 'Added fats and oils, olives and nuts'),
+	('Black vinegar', 1, NULL),
+	('Bonito flakes', 0, 'Fish and Seafood'),
+	('Breadcrumbs', 1, 'Cereal and Potatoes'),
+	('Brown sugar', 4, 'Added fats and oils, olives and nuts'),
+	('Bulgur wheat', 1, 'Cereal and Potatoes'),
+	('Butter', 7, 'Added fats and oils, olives and nuts'),
+	('Cabbage', 0, 'Vegetables'),
+	('Carrot', 1, 'Vegetables'),
+	('Carrots', 1, 'Vegetables'),
+	('Cashews', 6, 'Added fats and oils, olives and nuts'),
+	('Celery', 0, 'Vegetables'),
+	('Cheese', 4, 'Milk and Dairy Products'),
+	('Chicken', 3, 'White Meat'),
+	('Chickpeas', 3, 'Legumes'),
+	('Chocolate Sprinkles', 4, 'Added fats and oils, olives and nuts'),
+	('Chorizo', 3, 'Red Meat'),
+	('Cilantro', 0, 'Vegetables'),
+	('Cinnamon Stick', 0, NULL),
+	('Clarified Butter', 7, 'Added fats and oils, olives and nuts'),
+	('Cocoa powder', 3, 'Added fats and oils, olives and nuts'),
+	('Coconut milk', 5, 'Milk and Dairy Products'),
+	('Condensed Milk', 4, 'Milk and Dairy Products'),
+	('Cotija cheese', 4, 'Milk and Dairy Products'),
+	('Cream', 5, 'Milk and Dairy Products'),
+	('Cucumber', 1, 'Vegetables'),
+	('Cumin', 1, NULL),
+	('Curry powder', 1, NULL),
+	('Dill', 1, 'Vegetables'),
+	('Duck', 5, 'White Meat'),
+	('Egg', 2, 'Eggs'),
+	('Eggplant', 2, 'Vegetables'),
+	('Eggs', 2, 'Eggs'),
+	('Enchilada sauce', 2, 'Vegetables'),
+	('Espresso', 1, 'Vegetables'),
+	('Feta cheese', 4, 'Milk and Dairy Products'),
+	('Fish', 4, 'Fish and Seafood'),
+	('Flour', 1, 'Cereal and Potatoes'),
+	('Fresh basil', 1, 'Vegetables'),
+	('Galangal', 1, 'Vegetables'),
+	('Garam masala', 3, 'Added fats and oils, olives and nuts'),
+	('Garlic', 1, 'Vegetables'),
+	('Garlic Powder', 3, NULL),
+	('Ghee', 9, 'Added fats and oils, olives and nuts'),
+	('Ginger', 1, 'Vegetables'),
+	('Ginger garlic paste', 2, 'Vegetables'),
+	('Gochugaru', 1, NULL),
+	('Grand Marnier', 4, 'Added fats and oils, olives and nuts'),
+	('Grape leaves', 1, 'Vegetables'),
+	('Green chilies', 1, 'Vegetables'),
+	('Green curry paste', 3, 'Added fats and oils, olives and nuts'),
+	('Green onions', 1, 'Vegetables'),
+	('Ground beef', 3, 'Red Meat'),
+	('Ground lamb', 5, 'Red Meat'),
+	('Ground pork', 4, 'White Meat'),
+	('Heavy cream', 3, 'Milk and Dairy Products'),
+	('Hoisin sauce', 3, 'Added fats and oils, olives and nuts'),
+	('Kaffir lime leaves', 1, 'Vegetables'),
+	('Kalamata olives', 5, 'Added fats and oils, olives and nuts'),
+	('Kashmiri chili powder', 3, 'Added fats and oils, olives and nuts'),
+	('Kasuri methi (dried fenugreek leaves)', 2, 'Vegetables'),
+	('Ladyfingers', 3, 'Cereal and Potatoes'),
+	('Lamb', 2, 'Red Meat'),
+	('Lemon juice', 1, 'Fruits'),
+	('Lemongrass', 1, 'Vegetables'),
+	('Lime juice', 1, 'Fruits'),
+	('Marsala wine', 3, 'Added fats and oils, olives and nuts'),
+	('Mascarpone cheese', 4, 'Milk and Dairy Products'),
+	('Milk', 1, 'Milk and Dairy Products'),
+	('Mint', 0, 'Vegetables'),
+	('Mint leaves', 0, 'Vegetables'),
+	('Mirin', 1, NULL),
+	('Mitmita Spice', 0, NULL),
+	('Mixed greens', 1, 'Vegetables'),
+	('Mixed vegetables', 0, 'Vegetables'),
+	('Mozzarella cheese', 4, 'Milk and Dairy Products'),
+	('Mushrooms', 1, 'Vegetables'),
+	('Mustard', 2, 'Added fats and oils, olives and nuts'),
+	('Napa Cabbage', 0, 'Vegetables'),
+	('Noodles', 3, 'Cereal and Potatoes'),
+	('Nori (seaweed)', 2, 'Fish and Seafood'),
+	('Nutmeg', 1, 'Vegetables'),
+	('Olive Oil', 9, 'Added fats and oils, olives and nuts'),
+	('Onion', 1, 'Vegetables'),
+	('Onion Powder', 3, NULL),
+	('Onions', 0, 'Vegetables'),
+	('Oranges', 1, 'Fruits'),
+	('Paneer', 2, 'Milk and Dairy Products'),
+	('Paneer cheese', 4, 'Milk and Dairy Products'),
+	('Paprika', 0, NULL),
+	('Parmesan cheese', 4, 'Milk and Dairy Products'),
+	('Parsley', 0, 'Vegetables'),
+	('Pasta', 4, 'Cereal and Potatoes'),
+	('Peanuts', 6, 'Added fats and oils, olives and nuts'),
+	('Phyllo dough', 3, 'Cereal and Potatoes'),
+	('Pickled Carrots', 1, 'Vegetables'),
+	('Pickled ginger', 1, 'Vegetables'),
+	('Pineapple', 3, 'Fruits'),
+	('Pita chips', 3, 'Cereal and Potatoes'),
+	('Pizza dough', 3, 'Cereal and Potatoes'),
+	('Poblano peppers', 1, 'Vegetables'),
+	('Pomegranate seeds', 1, 'Fruits'),
+	('Pork', 3, 'White Meat'),
+	('Pork Ribs', 3, 'Red Meat'),
+	('Potato', 1, 'Cereal and Potatoes'),
+	('Potatoes', 1, 'Cereal and Potatoes'),
+	('Radishes', 1, 'Vegetables'),
+	('Red bell pepper', 0, 'Vegetables'),
+	('Red onion', 1, 'Vegetables'),
+	('Red wine', 3, 'Added fats and oils, olives and nuts'),
+	('Rice', 1, 'Cereal and Potatoes'),
+	('Rice Noodles', 1, 'Cereal and Potatoes'),
+	('Rice Paper', 1, 'Cereal and Potatoes'),
+	('Rice vermicelli', 2, 'Cereal and Potatoes'),
+	('Rice vinegar', 3, 'Added fats and oils, olives and nuts'),
+	('Ricotta cheese', 2, 'Milk and Dairy Products'),
+	('Saffron', 3, 'Added fats and oils, olives and nuts'),
+	('Salsa', 0, NULL),
+	('Salt', 0, NULL),
+	('Seafood', 4, 'Fish and Seafood'),
+	('Seaweed', 1, 'Vegetables'),
+	('Sesame oil', 9, 'Added fats and oils, olives and nuts'),
+	('Shrimp', 3, 'Fish and Seafood'),
+	('Sichuan peppercorns', 6, 'Added fats and oils, olives and nuts'),
+	('Silken tofu', 1, 'Vegetables'),
+	('Soy Sauce', 2, 'Added fats and oils, olives and nuts'),
+	('Spaghetti', 3, 'Cereal and Potatoes'),
+	('Spinach', 1, 'Vegetables'),
+	('Sugar', 4, NULL),
+	('Sumac', 1, 'Vegetables'),
+	('Tahini', 6, 'Added fats and oils, olives and nuts'),
+	('Tamarind paste', 2, 'Fruits'),
+	('Tandoori masala', 4, NULL),
+	('Tapioca Flour', 1, 'Cereal and Potatoes'),
+	('Teff Flour', 1, 'Cereal and Potatoes'),
+	('Tempura batter', 4, 'Added fats and oils, olives and nuts'),
+	('Thai basil', 1, 'Vegetables'),
+	('Thai chilies', 1, 'Vegetables'),
+	('Thyme', 1, 'Vegetables'),
+	('Tofu', 2, 'Legumes'),
+	('Tomato', 0, 'Vegetables'),
+	('Tomato sauce', 2, 'Vegetables'),
+	('Tomatoes', 2, 'Vegetables'),
+	('Tortillas', 3, 'Cereal and Potatoes'),
+	('Turmeric', 0, NULL),
+	('Veal', 2, 'Red Meat'),
+	('Veal shanks', 2, 'White Meat'),
+	('Vegetables', 0, 'Vegetables'),
+	('Vermicelli Noodles', 1, 'Cereal and Potatoes'),
+	('Walnuts', 6, 'Added fats and oils, olives and nuts'),
+	('Wasabi', 1, 'Vegetables'),
+	('Water', 0, NULL),
+	('White pepper', 3, NULL),
+	('White wine', 1, NULL),
+	('Yeast', 0, 'Cereal and Potatoes'),
+	('Yogurt', 3, 'Milk and Dairy Products'),
+	('Zucchini', 1, 'Vegetables');
+	
+INSERT INTO `recipes` (`recipe_name`, `short_desc`, `difficulty_level`, `tip1`, `tip2`, `tip3`, `prep_time`, `cooking_time`, `quantities`, `main_ingredient`) VALUES
+	('Apple Pie', 'Classic American apple pie with a flaky crust.', '4', 'Use a mix of sweet and tart apples.', 'Brush the crust with egg wash.', NULL, '00:30:00', '01:00:00', 8, 'Apple'),
+	('Banh Mi', 'Vietnamese sandwich with pickled vegetables and meat.', '2', 'Use a crusty baguette.', NULL, NULL, '00:15:00', '00:20:00', 2, 'Pork'),
+	('BBQ Ribs', 'American BBQ ribs with smoky flavor.', '3', 'Marinate the ribs overnight.', NULL, NULL, '00:15:00', '03:00:00', 4, 'Pork Ribs'),
+	('Beef Bourguignon', 'French beef stew cooked in red wine', '4', 'Use a good quality red wine', 'Cook slowly for tender meat', 'Serve with crusty bread', '00:30:00', '02:30:00', 6, 'Beef'),
+	('Beef Stew', 'Hearty American beef stew with vegetables.', '3', 'Brown the beef first.', 'Use red wine for depth of flavor.', NULL, '00:20:00', '03:00:00', 6, 'Beef'),
+	('Bibimbap', 'Korean rice bowl with assorted toppings.', '3', 'Use a variety of vegetables.', 'Serve with a fried egg on top.', 'Mix well before eating.', '00:20:00', '00:30:00', 4, 'Rice'),
+	('Brigadeiro', 'Brazilian chocolate truffles.', '1', 'Use good quality cocoa powder.', NULL, NULL, '00:10:00', '00:10:00', 20, 'Condensed Milk'),
+	('Bulgogi', 'Korean marinated beef.', '2', 'Marinate the beef overnight.', 'Cook on high heat.', 'Serve with rice and lettuce wraps.', '00:20:00', '00:15:00', 4, 'Beef'),
+	('Butter Chicken', 'Indian creamy tomato-based chicken curry', '3', 'Marinate chicken for better flavor', 'Use fresh cream for richness', NULL, '00:20:00', '00:30:00', 4, 'Chicken'),
+	('Caprese Pizza', 'Italian pizza topped with tomatoes, mozzarella cheese, and basil', '2', 'Use fresh basil leaves', 'Top with fresh mozzarella', NULL, '00:20:00', '00:15:00', 4, 'Pizza dough'),
+	('Carbonnade Flamande', 'Belgian beef and beer stew', '4', 'Use Belgian beer for authenticity', 'Cook slowly for tender meat', NULL, '00:30:00', '02:00:00', 6, 'Beef'),
+	('Ceviche', 'Latin American seafood dish marinated in citrus juices', '2', 'Use fresh lime juice', 'Serve chilled', NULL, '00:15:00', '00:00:00', 4, 'Fish'),
+	('Chicken Biryani', 'Fragrant Indian rice dish with chicken and spices', '4', 'Marinate chicken for better flavor', 'Use basmati rice for best results', NULL, '00:30:00', '01:00:00', 6, 'Chicken'),
+	('Chicken Korma', 'Indian chicken curry cooked with yogurt, cream, and spices', '3', 'Marinate chicken for better flavor', 'Use fresh cream for richness', NULL, '00:30:00', '00:45:00', 4, 'Chicken'),
+	('Chicken Tikka Masala', 'Iconic Indian curry dish', '3', 'Marinate chicken for at least 2 hours', NULL, NULL, '00:30:00', '00:30:00', 4, 'Chicken'),
+	('Chilaquiles', 'Mexican tortilla casserole with salsa and cheese', '2', 'Use fresh salsa', 'Top with sour cream and cheese', NULL, '00:20:00', '00:30:00', 4, 'Tortillas'),
+	('Chiles en Nogada', 'Mexican stuffed poblano peppers with walnut sauce', '4', 'Use fresh pomegranates for garnish', 'Serve at room temperature', 'Use roasted walnuts for the sauce', '00:30:00', '00:45:00', 6, 'Poblano peppers'),
+	('Coq au Vin', 'Classic French chicken dish', '4', 'Marinate overnight for best flavor', 'Use a good quality red wine', NULL, '00:20:00', '01:30:00', 6, 'Chicken'),
+	('Crepes Suzette', 'French thin pancakes with orange sauce and Grand Marnier', '3', 'Use fresh orange juice', 'Flambe with Grand Marnier', NULL, '00:15:00', '00:15:00', 4, 'Flour'),
+	('Dolmades', 'Greek stuffed grape leaves with rice and herbs', '3', 'Use fresh grape leaves', 'Serve with lemon wedges', 'Add fresh dill for extra flavor', '00:30:00', '00:45:00', 6, 'Grape leaves'),
+	('Doro Wat', 'Ethiopian spicy chicken stew.', '4', 'Use berbere spice mix.', 'Serve with injera.', NULL, '00:20:00', '01:30:00', 6, 'Chicken'),
+	('Eggplant Parmesan', 'Italian baked eggplant dish with tomato sauce and cheese', '3', 'Use fresh eggplants', 'Top with mozzarella cheese', NULL, '00:30:00', '00:45:00', 4, 'Eggplant'),
+	('Enchiladas', 'Mexican rolled tortillas stuffed with meat and cheese, topped with sauce', '3', 'Use fresh tortillas', 'Top with cheese and bake until bubbly', NULL, '00:20:00', '00:30:00', 4, 'Tortillas'),
+	('Falafel', 'Lebanese fried chickpea patties', '2', 'Use dried chickpeas soaked overnight', 'Add fresh herbs for better flavor', NULL, '00:20:00', '00:20:00', 4, 'Chickpeas'),
+	('Fattoush', 'Lebanese salad with mixed greens, vegetables, and pita chips', '2', 'Use toasted pita chips', 'Add sumac for extra tang', NULL, '00:15:00', '00:00:00', 4, 'Mixed greens'),
+	('Feijoada', 'Brazilian black bean stew with pork.', '3', 'Use a variety of pork cuts.', 'Serve with orange slices.', 'Add a bay leaf for extra flavor.', '00:30:00', '02:30:00', 6, 'Black Beans'),
+	('Gazpacho', 'Traditional Spanish cold tomato soup', '1', 'Serve chilled', NULL, NULL, '00:15:00', '00:00:00', 4, 'Tomato'),
+	('Greek Salad', 'Traditional Greek salad', '1', 'Use fresh and ripe tomatoes', 'Add olives for extra flavor', NULL, '00:10:00', '00:00:00', 2, 'Tomato'),
+	('Guacamole', 'Mexican avocado dip with tomatoes and lime', '1', 'Use ripe avocados', 'Add lime juice to prevent browning', NULL, '00:15:00', '00:00:00', 4, 'Avocado'),
+	('Gyoza', 'Japanese pan-fried dumplings filled with ground meat and vegetables', '3', 'Use fresh ginger for better flavor', 'Serve with dipping sauce', NULL, '00:30:00', '00:20:00', 4, 'Pork'),
+	('Hot and Sour Soup', 'Chinese spicy and tangy soup with mushrooms and tofu', '2', 'Use fresh tofu', NULL, NULL, '00:20:00', '00:20:00', 4, 'Tofu'),
+	('Hummus', 'Classic Lebanese dip', '1', 'Use fresh lemon juice', 'Add a pinch of cumin for extra flavor', NULL, '00:10:00', '00:00:00', 4, 'Chickpeas'),
+	('Injera', 'Ethiopian sourdough flatbread.', '4', 'Ferment the batter for 3 days.', 'Cook on a hot griddle.', NULL, '00:10:00', '00:05:00', 12, 'Teff Flour'),
+	('Kimchi', 'Spicy fermented Korean cabbage.', '3', 'Use Korean chili powder.', 'Ferment for at least a week.', NULL, '00:30:00', '00:00:00', 10, 'Cabbage'),
+	('Kitfo', 'Ethiopian seasoned raw beef.', '3', 'Use high-quality beef.', 'Serve with injera or bread.', NULL, '00:15:00', '00:00:00', 4, 'Beef'),
+	('Kung Pao Chicken', 'Popular Chinese stir-fry dish', '3', 'Prepare all ingredients before cooking', NULL, NULL, '00:15:00', '00:20:00', 4, 'Chicken'),
+	('Kung Pao Shrimp', 'Chinese stir-fried shrimp dish with peanuts and chili peppers', '3', 'Prepare all ingredients before cooking', 'Adjust spice level to taste', NULL, '00:15:00', '00:15:00', 4, 'Shrimp'),
+	('Lamb Tagine', 'Moroccan slow-cooked lamb stew with spices and dried fruits', '4', 'Use a tagine pot for best results', 'Cook slowly for tender meat', 'Serve with couscous', '00:20:00', '02:00:00', 6, 'Lamb'),
+	('Lasagna', 'Classic Italian layered pasta dish with meat and cheese', '4', 'Use ricotta cheese for creaminess', 'Let it rest before serving', NULL, '00:30:00', '01:00:00', 6, 'Pasta'),
+	('Mapo Tofu', 'Spicy Chinese tofu dish with minced meat', '3', 'Use soft tofu for best texture', NULL, NULL, '00:20:00', '00:20:00', 4, 'Tofu'),
+	('Margherita Pizza', 'Classic Italian pizza with tomato, mozzarella, and basil', '2', 'Use fresh basil leaves', 'Bake on a pizza stone for best results', NULL, '00:20:00', '00:15:00', 4, 'Pizza dough'),
+	('Miso Soup', 'Japanese soup made with soybean paste, tofu, and seaweed', '2', 'Use miso paste for authentic flavor', 'Serve hot', NULL, '00:10:00', '00:10:00', 4, 'Tofu'),
+	('Moussaka', 'Greek eggplant and lamb casserole with bechamel sauce', '4', 'Let it rest before serving', NULL, NULL, '00:30:00', '01:00:00', 6, 'Eggplant'),
+	('Osso Buco', 'Italian braised veal shanks with vegetables and white wine', '4', 'Cook slowly for tender meat', 'Serve with gremolata', 'Pair with a glass of white wine', '00:30:00', '02:00:00', 6, 'Veal'),
+	('Pad Thai', 'Classic Thai stir-fried noodle dish with shrimp', '3', 'Use tamarind paste for authentic taste', 'Add peanuts for extra crunch', NULL, '00:20:00', '00:15:00', 4, 'Noodles'),
+	('Paella', 'Traditional Spanish rice dish', '4', 'Use saffron for authentic taste', 'Cook rice evenly for best texture', 'Serve with lemon wedges', '00:20:00', '00:30:00', 6, 'Rice'),
+	('Palak Paneer', 'Indian spinach curry with paneer cheese', '3', 'Use fresh spinach', 'Add cream for richness', NULL, '00:20:00', '00:30:00', 4, 'Spinach'),
+	('Paneer Tikka', 'Indian grilled paneer cheese skewers with spices and vegetables', '3', 'Marinate paneer for at least 2 hours', 'Use skewers for grilling', NULL, '00:20:00', '00:15:00', 4, 'Paneer'),
+	('Pão de Queijo', 'Brazilian cheese bread.', '2', 'Use tapioca flour.', 'Grate the cheese finely.', NULL, '00:15:00', '00:25:00', 24, 'Cheese'),
+	('Pasta Primavera', 'Italian pasta dish with fresh vegetables and Parmesan cheese', '2', 'Use seasonal vegetables', 'Top with grated Parmesan', NULL, '00:20:00', '00:20:00', 4, 'Pasta'),
+	('Peking Duck', 'Chinese roast duck dish with crispy skin', '5', 'Air-dry duck for crispy skin', 'Serve with hoisin sauce', NULL, '00:30:00', '02:00:00', 6, 'Duck'),
+	('Pho', 'Traditional Vietnamese noodle soup with beef or chicken.', '3', 'Use fresh herbs for garnish.', 'Serve with lime wedges.', NULL, '00:20:00', '02:00:00', 4, 'Beef'),
+	('Ratatouille', 'French vegetable stew with tomatoes, eggplant, and zucchini', '3', 'Use fresh vegetables', 'Serve with crusty bread', NULL, '00:20:00', '00:40:00', 4, 'Vegetables'),
+	('Sashimi', 'Japanese sliced raw fish dish', '3', 'Use sushi-grade fish', 'Serve with soy sauce and wasabi', NULL, '00:30:00', '00:00:00', 4, 'Fish'),
+	('Shakshuka', 'Middle Eastern poached eggs in spicy tomato sauce', '2', 'Use fresh tomatoes', 'Top with crumbled feta', NULL, '00:15:00', '00:15:00', 4, 'Tomato'),
+	('Spaghetti Carbonara', 'Classic Italian pasta dish', '3', 'Use fresh eggs', 'Keep in fridge for up to 3 days', NULL, '00:15:00', '00:20:00', 4, 'Spaghetti'),
+	('Spanakopita', 'Greek spinach and feta cheese pie in phyllo pastry', '3', 'Use fresh spinach', 'Brush phyllo with melted butter', NULL, '00:30:00', '00:30:00', 6, 'Spinach'),
+	('Spring Rolls', 'Fresh Vietnamese spring rolls with shrimp or pork.', '2', 'Use fresh mint and cilantro.', 'Soak rice paper briefly.', NULL, '00:30:00', '00:10:00', 4, 'Shrimp'),
+	('Sushi Rolls', 'Japanese sushi rolls', '3', 'Use sushi-grade fish', 'Keep hands wet to prevent sticking', NULL, '00:45:00', '00:30:00', 4, 'Rice'),
+	('Tabbouleh', 'Lebanese parsley and bulgur wheat salad with tomatoes and mint', '2', 'Use fresh mint leaves', 'Chill before serving', NULL, '00:15:00', '00:00:00', 4, 'Parsley'),
+	('Tacos al Pastor', 'Traditional Mexican street food', '2', 'Use fresh pineapple for best taste', 'Grill meat for authentic flavor', NULL, '00:20:00', '00:30:00', 6, 'Pork'),
+	('Tempura', 'Japanese deep-fried seafood and vegetables', '3', 'Use ice-cold batter for crispiness', 'Fry in small batches', NULL, '00:20:00', '00:10:00', 4, 'Seafood'),
+	('Tempura Vegetables', 'Japanese deep-fried battered vegetables', '2', 'Use ice-cold batter for crispiness', 'Serve with tempura dipping sauce', NULL, '00:20:00', '00:10:00', 4, 'Vegetables'),
+	('Thai Green Curry', 'Thai spicy coconut milk-based curry with chicken and vegetables', '3', 'Use fresh lemongrass', 'Serve with jasmine rice', NULL, '00:20:00', '00:30:00', 4, 'Chicken'),
+	('Tiramisu', 'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone', '2', 'Use strong espresso', 'Chill overnight for best flavor', NULL, '00:30:00', '00:00:00', 6, 'Ladyfingers'),
+	('Tofu Curry', 'Asian curry dish with tofu, vegetables, and coconut milk', '2', 'Use firm tofu', 'Serve with steamed rice', NULL, '00:25:00', '00:25:00', 4, 'Tofu'),
+	('Tom Kha Gai', 'Thai coconut chicken soup with lemongrass and galangal', '2', 'Use fresh herbs for best flavor', NULL, NULL, '00:20:00', '00:20:00', 4, 'Chicken'),
+	('Tom Yum Soup', 'Classic Thai spicy soup', '2', 'Use fresh herbs for better flavor', NULL, NULL, '00:15:00', '00:20:00', 4, 'Shrimp'),
+	('Tortilla Española', 'Spanish potato omelette', '2', 'Use waxy potatoes', 'Let it cool before serving', NULL, '00:10:00', '00:30:00', 4, 'Potato'),
+	('Vietnamese Spring Rolls', 'Vietnamese rice paper rolls filled with shrimp, vegetables, and vermicelli noodles', '2', 'Use fresh herbs for best flavor', 'Serve with dipping sauce', NULL, '00:30:00', '00:30:00', 4, 'Shrimp'),
+	('Turkish Lamb Kebab', 'Delicious lamb kebabs with Turkish spices', '3', 'Use fresh herbs for better flavor', 'Marinate overnight for best results', NULL, '00:30:00', '00:45:00', 4, 'Lamb'),
+   ('Russian Beef Stroganoff', 'Classic Russian dish with creamy sauce', '4', 'Use tender beef cuts for best texture', 'Cook the mushrooms separately for better flavor', 'Serve with mashed potatoes or noodles', '00:20:00', '00:35:00', 4, 'Beef');
 
--- Dumping structure for πίνακας cooking.contestant
-CREATE TABLE IF NOT EXISTS `contestant` (
-  `contestant_id` int(11) NOT NULL AUTO_INCREMENT,
-  `episode_id` int(11) NOT NULL,
-  `cook_id` int(11) NOT NULL,
-  `recipe_name` varchar(50) NOT NULL,
-  `national_cuisine` varchar(30) NOT NULL,
-  PRIMARY KEY (`contestant_id`),
-  KEY `episode_fk2` (`episode_id`),
-  KEY `cook_fk4` (`cook_id`),
-  KEY `recipe_fk5` (`recipe_name`),
-  KEY `national_cuisine_fk1` (`national_cuisine`),
-  CONSTRAINT `cook_fk4` FOREIGN KEY (`cook_id`) REFERENCES `cook` (`cook_id`),
-  CONSTRAINT `episode_fk2` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`episode_id`),
-  CONSTRAINT `national_cuisine_fk1` FOREIGN KEY (`national_cuisine`) REFERENCES `national_cuisine` (`cuisine_name`),
-  CONSTRAINT `recipe_fk5` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+INSERT INTO `equipment` (`equipment_name`, `instructions`) VALUES
+	('Baking Dish', 'Use for baking casseroles and similar dishes.'),
+	('Baking Sheet', 'Use for baking items in the oven.'),
+	('Bamboo Mat', 'Use for rolling sushi.'),
+	('Blender', 'Use for blending and pureeing ingredients.'),
+	('Chopsticks', 'Use for picking up food, especially in Asian cuisine.'),
+	('Crepe Pan', 'Use for making crepes.'),
+	('Cutting Board', 'Use as a surface for chopping ingredients.'),
+	('Deep Fryer', 'Use for deep frying foods.'),
+	('Dutch Oven', 'Use for braising, roasting, and stewing.'),
+	('Food Processor', 'Use for chopping, slicing, and pureeing ingredients.'),
+	('Fork', 'Use for mixing and mashing ingredients.'),
+	('Frying Pan', 'Use for frying and sautéing.'),
+	('Griddle', 'Use for cooking pancakes, eggs, and other flat items.'),
+	('Grill', 'Use for grilling meats and vegetables.'),
+	('Knife', 'Use for chopping and slicing ingredients.'),
+	('Large Pot', 'Use for cooking large batches of food or boiling water.'),
+	('Mixing Bowl', 'Use for combining ingredients.'),
+	('Mixing Spoon', 'Use for stirring and mixing ingredients.'),
+	('Oven', 'Use for baking and roasting.'),
+	('Paella Pan', 'Use for cooking paella and similar dishes.'),
+	('Pie Pan', 'Use for baking pies.'),
+	('Rice Cooker', 'Use for cooking rice.'),
+	('Roasting Pan', 'Use for roasting meats and vegetables.'),
+	('Rolling Pin', 'Use for rolling out dough.'),
+	('Saucepan', 'Use for cooking sauces, soups, and boiling small quantities of food.'),
+	('Serving Plate', 'Use for presenting finished dishes.'),
+	('Sharp Knife', 'Use for precision cutting and slicing.'),
+	('Soup Spoons', 'Use for serving and eating soup.'),
+	('Spatula', 'Use for flipping and stirring foods.'),
+	('Stock Pot', 'Use for cooking large batches of soup or broth.'),
+	('Strainer', 'Use for straining solids from liquids.'),
+	('Tongs', 'Use for handling hot foods.'),
+	('Whisk', 'Use for beating and whipping ingredients.'),
+	('Wok', 'Use for stir-frying and deep frying.');
 
--- Dumping data for table cooking.contestant: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.cook
-CREATE TABLE IF NOT EXISTS `cook` (
-  `cook_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(30) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
-  `cook_phone_number` varchar(10) NOT NULL,
-  `cook_birthday` date NOT NULL,
-  `age_in_years` int(11) NOT NULL,
-  `cook_working_years` int(11) NOT NULL,
-  `professional_level` enum('C cook','B cook','A cook','chef assistant','chef') NOT NULL,
-  PRIMARY KEY (`cook_id`),
-  CONSTRAINT `phone_number` CHECK (octet_length(`cook_phone_number`) = 10 and `cook_phone_number` regexp '^[0-9]+$')
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.cook: ~50 rows (approximately)
 INSERT INTO `cook` (`cook_id`, `first_name`, `last_name`, `cook_phone_number`, `cook_birthday`, `age_in_years`, `cook_working_years`, `professional_level`) VALUES
-	(1cookingcctest1, 'Melissa', 'Alexander', '9165571632', '1990-02-03', 34, 15, 'chef assistant'),
+	(1, 'Melissa', 'Alexander', '9165571632', '1990-02-03', 34, 15, 'chef assistant'),
 	(2, 'William', 'Greene', '4232223724', '1959-04-08', 65, 6, 'chef assistant'),
 	(3, 'Thomas', 'Owens', '3776424622', '1976-06-04', 48, 6, 'chef assistant'),
 	(4, 'Robert', 'Harris', '9406791242', '1947-05-03', 77, 7, 'chef'),
@@ -105,18 +369,7 @@ INSERT INTO `cook` (`cook_id`, `first_name`, `last_name`, `cook_phone_number`, `
 	(48, 'Ivan', 'Grant', '9204376440', '1990-07-23', 34, 4, 'chef'),
 	(49, 'Jessica', 'Wilson', '0924097879', '1979-02-19', 45, 15, 'C cook'),
 	(50, 'Nathan', 'Griffin', '1584724539', '1948-01-03', 76, 20, 'A cook');
-
--- Dumping structure for πίνακας cooking.cook_cuisine
-CREATE TABLE IF NOT EXISTS `cook_cuisine` (
-  `cook_id` int(11) NOT NULL,
-  `cuisine_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`cook_id`,`cuisine_name`),
-  KEY `cook_cuisine_cuisine` (`cuisine_name`),
-  CONSTRAINT `cook_cuisine_cook` FOREIGN KEY (`cook_id`) REFERENCES `cook` (`cook_id`),
-  CONSTRAINT `cook_cuisine_cuisine` FOREIGN KEY (`cuisine_name`) REFERENCES `national_cuisine` (`cuisine_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.cook_cuisine: ~451 rows (approximately)
+	
 INSERT INTO `cook_cuisine` (`cook_id`, `cuisine_name`) VALUES
 	(1, 'American'),
 	(3, 'American'),
@@ -568,19 +821,14 @@ INSERT INTO `cook_cuisine` (`cook_id`, `cuisine_name`) VALUES
 	(43, 'Vietnamese'),
 	(47, 'Vietnamese'),
 	(49, 'Vietnamese'),
-	(50, 'Vietnamese');
-
--- Dumping structure for πίνακας cooking.cuisine_recipe
-CREATE TABLE IF NOT EXISTS `cuisine_recipe` (
-  `recipe_name` varchar(50) NOT NULL,
-  `cuisine_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`cuisine_name`),
-  KEY `cuisine_recipes_cuisine` (`cuisine_name`),
-  CONSTRAINT `cuisine_recipes_cuisine` FOREIGN KEY (`cuisine_name`) REFERENCES `national_cuisine` (`cuisine_name`),
-  CONSTRAINT `cuisine_recipes_recipes` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.cuisine_recipe: ~70 rows (approximately)
+	(50, 'Vietnamese'),
+	(5, 'Turkish'),
+	(12, 'Turkish'),
+	(39, 'Turkish'),
+	(8, 'Russian'),
+	(25, 'Russian'),
+	(47, 'Russian');
+	
 INSERT INTO `cuisine_recipe` (`recipe_name`, `cuisine_name`) VALUES
 	('Apple Pie', 'American'),
 	('BBQ Ribs', 'American'),
@@ -651,504 +899,10 @@ INSERT INTO `cuisine_recipe` (`recipe_name`, `cuisine_name`) VALUES
 	('Banh Mi', 'Vietnamese'),
 	('Pho', 'Vietnamese'),
 	('Spring Rolls', 'Vietnamese'),
-	('Vietnamese Spring Rolls', 'Vietnamese');
-
--- Dumping structure for πίνακας cooking.episodes
-CREATE TABLE IF NOT EXISTS `episodes` (
-  `episode_id` int(11) NOT NULL AUTO_INCREMENT,
-  `season` int(11) NOT NULL,
-  `number_of_episode` int(11) NOT NULL,
-  PRIMARY KEY (`episode_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.episodes: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.episode_cuisine
-CREATE TABLE IF NOT EXISTS `episode_cuisine` (
-  `episode_id` int(11) NOT NULL,
-  `cuisine_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`episode_id`,`cuisine_name`),
-  KEY `episode_cuisine_cuisine` (`cuisine_name`),
-  CONSTRAINT `episode_cuisine_cuisine` FOREIGN KEY (`cuisine_name`) REFERENCES `national_cuisine` (`cuisine_name`),
-  CONSTRAINT `episode_cuisine_episode` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`episode_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.episode_cuisine: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.episode_recipe
-CREATE TABLE IF NOT EXISTS `episode_recipe` (
-  `recipe_name` varchar(50) NOT NULL,
-  `episode_id` int(11) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`episode_id`),
-  KEY `episode_recipes_episode` (`episode_id`),
-  CONSTRAINT `episode_recipes_episode` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`episode_id`),
-  CONSTRAINT `episode_recipes_recipes` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.episode_recipe: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.equipment
-CREATE TABLE IF NOT EXISTS `equipment` (
-  `equipment_name` varchar(50) NOT NULL,
-  `instructions` varchar(100) NOT NULL,
-  PRIMARY KEY (`equipment_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.equipment: ~34 rows (approximately)
-INSERT INTO `equipment` (`equipment_name`, `instructions`) VALUES
-	('Baking Dish', 'Use for baking casseroles and similar dishes.'),
-	('Baking Sheet', 'Use for baking items in the oven.'),
-	('Bamboo Mat', 'Use for rolling sushi.'),
-	('Blender', 'Use for blending and pureeing ingredients.'),
-	('Chopsticks', 'Use for picking up food, especially in Asian cuisine.'),
-	('Crepe Pan', 'Use for making crepes.'),
-	('Cutting Board', 'Use as a surface for chopping ingredients.'),
-	('Deep Fryer', 'Use for deep frying foods.'),
-	('Dutch Oven', 'Use for braising, roasting, and stewing.'),
-	('Food Processor', 'Use for chopping, slicing, and pureeing ingredients.'),
-	('Fork', 'Use for mixing and mashing ingredients.'),
-	('Frying Pan', 'Use for frying and sautéing.'),
-	('Griddle', 'Use for cooking pancakes, eggs, and other flat items.'),
-	('Grill', 'Use for grilling meats and vegetables.'),
-	('Knife', 'Use for chopping and slicing ingredients.'),
-	('Large Pot', 'Use for cooking large batches of food or boiling water.'),
-	('Mixing Bowl', 'Use for combining ingredients.'),
-	('Mixing Spoon', 'Use for stirring and mixing ingredients.'),
-	('Oven', 'Use for baking and roasting.'),
-	('Paella Pan', 'Use for cooking paella and similar dishes.'),
-	('Pie Pan', 'Use for baking pies.'),
-	('Rice Cooker', 'Use for cooking rice.'),
-	('Roasting Pan', 'Use for roasting meats and vegetables.'),
-	('Rolling Pin', 'Use for rolling out dough.'),
-	('Saucepan', 'Use for cooking sauces, soups, and boiling small quantities of food.'),
-	('Serving Plate', 'Use for presenting finished dishes.'),
-	('Sharp Knife', 'Use for precision cutting and slicing.'),
-	('Soup Spoons', 'Use for serving and eating soup.'),
-	('Spatula', 'Use for flipping and stirring foods.'),
-	('Stock Pot', 'Use for cooking large batches of soup or broth.'),
-	('Strainer', 'Use for straining solids from liquids.'),
-	('Tongs', 'Use for handling hot foods.'),
-	('Whisk', 'Use for beating and whipping ingredients.'),
-	('Wok', 'Use for stir-frying and deep frying.');
-
--- Dumping structure for procedure cooking.fill_grades
-DELIMITER //
-CREATE PROCEDURE `fill_grades`(IN ep_id INT)
-BEGIN
-    DECLARE j INT DEFAULT 0;
-    DECLARE judge1 INT;
-    DECLARE judge2 INT;
-    DECLARE judge3 INT;
-    DECLARE cont_id INT;
-    
-    
-    SELECT judge_id INTO judge1 FROM judge WHERE episode_id = ep_id LIMIT 1;
-    SELECT judge_id INTO judge2 FROM judge WHERE episode_id = ep_id LIMIT 1 OFFSET 1;
-    SELECT judge_id INTO judge3 FROM judge WHERE episode_id = ep_id LIMIT 1 OFFSET 2;
-
-
-    WHILE j < 10 DO
-        
-        SELECT contestant_id INTO cont_id FROM contestant WHERE episode_id = ep_id LIMIT 1 OFFSET j;
-
-        
-
-        SET FOREIGN_KEY_CHECKS = 0;
-
-        INSERT INTO grades (grade, contestant_id, judge_id, episode_id)
-        VALUES (FLOOR(1 + RAND() * 5), cont_id, judge1, ep_id),
-               (FLOOR(1 + RAND() * 5), cont_id, judge2, ep_id),
-               (FLOOR(1 + RAND() * 5), cont_id, judge3, ep_id);
-
-        SET FOREIGN_KEY_CHECKS = 1;
-
-            
-        SET j = j + 1;
-        END WHILE;
-        
-END//
-DELIMITER ;
-
--- Dumping structure for πίνακας cooking.food_groups
-CREATE TABLE IF NOT EXISTS `food_groups` (
-  `group_name` enum('Vegetables','Fruits','Cereal and Potatoes','Milk and Dairy Products','Legumes','Red Meat','White Meat','Eggs','Fish and Seafood','Added fats and oils, olives and nuts') NOT NULL,
-  `group_description` varchar(200) NOT NULL,
-  PRIMARY KEY (`group_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.food_groups: ~10 rows (approximately)
-INSERT INTO `food_groups` (`group_name`, `group_description`) VALUES
-	('Vegetables', 'A vegetable is the edible portion of a plant.'),
-	('Fruits', 'A fruit is a mature, ripened ovary, along with the contents of the ovary.'),
-	('Cereal and Potatoes', 'Cereals and potatoes group includes pasta, bread and bakery products, rice, barley, corn, as well as other minor cereals and tubers such as sweet potatoes and topinambur.'),
-	('Milk and Dairy Products', 'Dairy products or milk products, also known as lacticinia, are food products made from (or containing) milk.'),
-	('Legumes', 'A legume refers to any plant from the Fabaceae family that would include its leaves, stems, and pods. A pulse is the edible seed from a legume plant. Pulses include beans, lentils, and peas.'),
-	('Red Meat', 'Red meat refers to fresh unprocessed mammalian muscle meat (e.g. beef, veal, pork, lamb, mutton, horse, or goat meat), which may be minced or frozen, and is usually consumed cooked.'),
-	('White Meat', 'In culinary terms, white meat is meat which is pale in color before and after cooking.'),
-	('Eggs', 'Bird and reptile eggs consist of a protective eggshell, albumen (egg white), and vitellus (egg yolk), contained within various thin membranes.'),
-	('Fish and Seafood', 'Seafood encompasses all commercially obtained freshwater and saltwater fish, molluscan shellfish, and crustaceans.'),
-	('Added fats and oils, olives and nuts', 'This group includes added fats and oils such as butter, margarine, olive oil, and nut oils, as well as olives and various types of nuts.');
-
--- Dumping structure for procedure cooking.generate_episode
-DELIMITER //
-CREATE PROCEDURE `generate_episode`(IN ep_id INT)
-BEGIN
-    DECLARE i INT DEFAULT 0;
-    DECLARE cuisine VARCHAR(30);
-    DECLARE recipe VARCHAR(50);
-    DECLARE cont_id INT;
-    DECLARE jdg_id INT;
-    DECLARE season_num INT;
-    DECLARE num_of_episode INT;
-    DECLARE gr ENUM ('1','2','3','4','5');
-
-    SET season_num = (ep_id - 1) DIV 10 + 1;
-    SET num_of_episode = (ep_id - 1) MOD 10 + 1;
-
-    
-    INSERT INTO episodes (episode_id, season, number_of_episode)
-    VALUES (ep_id, season_num, num_of_episode);
-
-    WHILE i < 10 DO
-        
-        SELECT cuisine_name INTO cuisine
-        FROM national_cuisine
-            WHERE cuisine_name NOT IN (SELECT cuisine_name FROM episode_cuisine WHERE episode_id = ep_id)
-        AND (
-            (ep_id - 1) MOD 10 + 1 < 4 
-            OR (
-                cuisine_name NOT IN (SELECT cuisine_name FROM episode_cuisine WHERE episode_id = ep_id - 1)
-                AND cuisine_name NOT IN (SELECT cuisine_name FROM episode_cuisine WHERE episode_id = ep_id - 2)
-                AND cuisine_name NOT IN (SELECT cuisine_name FROM episode_cuisine WHERE episode_id = ep_id - 3)
-            )
-            AND EXISTS (
-                SELECT 1
-                FROM cook_cuisine
-                WHERE cuisine_name = cuisine
-                AND cook_id NOT IN (
-                    SELECT cook_id FROM contestant WHERE episode_id IN (ep_id, ep_id - 1, ep_id - 2, ep_id - 3)
-                )
-            )
-        )
-        ORDER BY RAND()
-        LIMIT 1;
-
-
-        IF cuisine IS NOT NULL THEN
-            INSERT INTO episode_cuisine (episode_id, cuisine_name)
-            VALUES (ep_id, cuisine);
-
-            
-            SELECT recipe_name INTO recipe
-            FROM cuisine_recipe
-            WHERE cuisine_name = cuisine
-            ORDER BY RAND()
-            LIMIT 1;
-
-            IF recipe IS NOT NULL THEN
-                
-                SELECT cook_id INTO cont_id
-                FROM cook_cuisine
-                WHERE cuisine_name = cuisine
-                AND cook_id NOT IN (SELECT cook_id FROM contestant WHERE episode_id = ep_id)
-                AND (
-                    (ep_id - 1) MOD 10 + 1 < 4 
-                    OR (
-                        cook_id NOT IN (SELECT cook_id FROM contestant WHERE episode_id = ep_id - 1)
-                        AND cook_id NOT IN (SELECT cook_id FROM contestant WHERE episode_id = ep_id - 2)
-                        AND cook_id NOT IN (SELECT cook_id FROM contestant WHERE episode_id = ep_id - 3)
-                    )
-                )
-                ORDER BY RAND()
-                LIMIT 1;
-
-                IF cont_id IS NOT NULL THEN
-
-                    INSERT INTO contestant (episode_id, cook_id, recipe_name, national_cuisine)
-                    VALUES (ep_id, cont_id, recipe, cuisine);
-                END IF;
-            END IF;
-        END IF;
-
-
-
-        SET i = i + 1;
-    END WHILE;
-
-    
-    SET i = 0;
-    WHILE i < 3 DO
-        SELECT cook_id INTO jdg_id
-        FROM cook
-        WHERE cook_id NOT IN (SELECT cook_id FROM judge WHERE episode_id = ep_id)
-        AND cook_id NOT IN (SELECT cook_id FROM contestant WHERE episode_id = ep_id)
-        AND (
-            (ep_id - 1) MOD 10 + 1 < 4 
-            OR (
-                cook_id NOT IN (SELECT cook_id FROM judge WHERE episode_id = ep_id - 1)
-                AND cook_id NOT IN (SELECT cook_id FROM judge WHERE episode_id = ep_id - 2)
-                AND cook_id NOT IN (SELECT cook_id FROM judge WHERE episode_id = ep_id - 3)
-            )
-        )
-        ORDER BY RAND()
-        LIMIT 1;
-
-        IF jdg_id IS NOT NULL THEN
-
-            INSERT INTO judge (episode_id, cook_id)
-            VALUES (ep_id, jdg_id);
-
-            
-        END IF;
-
-
-        SET i = i + 1;
-    END WHILE;
-
-    CALL fill_grades(ep_id);
-
-END//
-DELIMITER ;
-
--- Dumping structure for procedure cooking.generate_episodes
-DELIMITER //
-CREATE PROCEDURE `generate_episodes`()
-BEGIN
-    DECLARE i INT DEFAULT 1;
-    WHILE i <= 50 DO
-        CALL generate_episode(i);
-        SET i = i + 1;
-    END WHILE;
-END//
-DELIMITER ;
-
--- Dumping structure for πίνακας cooking.grades
-CREATE TABLE IF NOT EXISTS `grades` (
-  `grade_id` int(11) NOT NULL AUTO_INCREMENT,
-  `grade` enum('1','2','3','4','5') NOT NULL,
-  `contestant_id` int(11) NOT NULL,
-  `judge_id` int(11) NOT NULL,
-  `episode_id` int(11) NOT NULL,
-  PRIMARY KEY (`grade_id`),
-  KEY `episode_fk3` (`episode_id`),
-  KEY `judge_fk` (`judge_id`),
-  KEY `contestant_fk` (`contestant_id`),
-  CONSTRAINT `contestant_fk` FOREIGN KEY (`contestant_id`) REFERENCES `contestant` (`contestant_id`),
-  CONSTRAINT `episode_fk3` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`episode_id`),
-  CONSTRAINT `judge_fk` FOREIGN KEY (`judge_id`) REFERENCES `judge` (`judge_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.grades: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.ingredients
-CREATE TABLE IF NOT EXISTS `ingredients` (
-  `ingredient_name` varchar(50) NOT NULL,
-  `calories_per_gram` int(11) DEFAULT NULL,
-  `group_name` enum('Vegetables','Fruits','Cereal and Potatoes','Milk and Dairy Products','Legumes','Red Meat','White Meat','Eggs','Fish and Seafood','Added fats and oils, olives and nuts') DEFAULT NULL,
-  PRIMARY KEY (`ingredient_name`),
-  KEY `food_groups_fk_3` (`group_name`),
-  CONSTRAINT `food_groups_fk_3` FOREIGN KEY (`group_name`) REFERENCES `food_groups` (`group_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.ingredients: ~173 rows (approximately)
-INSERT INTO `ingredients` (`ingredient_name`, `calories_per_gram`, `group_name`) VALUES
-	('Apple', 1, 'Fruits'),
-	('Apples', 1, 'Fruits'),
-	('Avocado', 4, 'Fruits'),
-	('Bacon', 5, 'Red Meat'),
-	('Baguette', 2, 'Cereal and Potatoes'),
-	('Balsamic glaze', 1, 'Added fats and oils, olives and nuts'),
-	('Basil leaves', 1, 'Vegetables'),
-	('Basmati rice', 2, 'Cereal and Potatoes'),
-	('BBQ Sauce', 2, 'Added fats and oils, olives and nuts'),
-	('Bean sprouts', 1, 'Vegetables'),
-	('Beef', 3, 'Red Meat'),
-	('Beef broth', 3, 'Red Meat'),
-	('Beer', 4, 'Added fats and oils, olives and nuts'),
-	('Bell peppers', 1, 'Vegetables'),
-	('Berbere Spice', 0, NULL),
-	('Black beans', 3, 'Legumes'),
-	('Black olives', 5, 'Added fats and oils, olives and nuts'),
-	('Black vinegar', 1, NULL),
-	('Bonito flakes', 0, 'Fish and Seafood'),
-	('Breadcrumbs', 1, 'Cereal and Potatoes'),
-	('Brown sugar', 4, 'Added fats and oils, olives and nuts'),
-	('Bulgur wheat', 1, 'Cereal and Potatoes'),
-	('Butter', 7, 'Added fats and oils, olives and nuts'),
-	('Cabbage', 0, 'Vegetables'),
-	('Carrot', 1, 'Vegetables'),
-	('Carrots', 1, 'Vegetables'),
-	('Cashews', 6, 'Added fats and oils, olives and nuts'),
-	('Celery', 0, 'Vegetables'),
-	('Cheese', 4, 'Milk and Dairy Products'),
-	('Chicken', 3, 'White Meat'),
-	('Chickpeas', 3, 'Legumes'),
-	('Chocolate Sprinkles', 4, 'Added fats and oils, olives and nuts'),
-	('Chorizo', 3, 'Red Meat'),
-	('Cilantro', 0, 'Vegetables'),
-	('Cinnamon Stick', 0, NULL),
-	('Clarified Butter', 7, 'Added fats and oils, olives and nuts'),
-	('Cocoa powder', 3, 'Added fats and oils, olives and nuts'),
-	('Coconut milk', 5, 'Milk and Dairy Products'),
-	('Condensed Milk', 4, 'Milk and Dairy Products'),
-	('Cotija cheese', 4, 'Milk and Dairy Products'),
-	('Cream', 5, 'Milk and Dairy Products'),
-	('Cucumber', 1, 'Vegetables'),
-	('Cumin', 1, NULL),
-	('Curry powder', 1, NULL),
-	('Dill', 1, 'Vegetables'),
-	('Duck', 5, 'White Meat'),
-	('Egg', 2, 'Eggs'),
-	('Eggplant', 2, 'Vegetables'),
-	('Eggs', 2, 'Eggs'),
-	('Enchilada sauce', 2, 'Vegetables'),
-	('Espresso', 1, 'Vegetables'),
-	('Feta cheese', 4, 'Milk and Dairy Products'),
-	('Fish', 4, 'Fish and Seafood'),
-	('Flour', 1, 'Cereal and Potatoes'),
-	('Fresh basil', 1, 'Vegetables'),
-	('Galangal', 1, 'Vegetables'),
-	('Garam masala', 3, 'Added fats and oils, olives and nuts'),
-	('Garlic', 1, 'Vegetables'),
-	('Garlic Powder', 3, NULL),
-	('Ghee', 9, 'Added fats and oils, olives and nuts'),
-	('Ginger', 1, 'Vegetables'),
-	('Ginger garlic paste', 2, 'Vegetables'),
-	('Gochugaru', 1, NULL),
-	('Grand Marnier', 4, 'Added fats and oils, olives and nuts'),
-	('Grape leaves', 1, 'Vegetables'),
-	('Green chilies', 1, 'Vegetables'),
-	('Green curry paste', 3, 'Added fats and oils, olives and nuts'),
-	('Green onions', 1, 'Vegetables'),
-	('Ground beef', 3, 'Red Meat'),
-	('Ground lamb', 5, 'Red Meat'),
-	('Ground pork', 4, 'White Meat'),
-	('Heavy cream', 3, 'Milk and Dairy Products'),
-	('Hoisin sauce', 3, 'Added fats and oils, olives and nuts'),
-	('Kaffir lime leaves', 1, 'Vegetables'),
-	('Kalamata olives', 5, 'Added fats and oils, olives and nuts'),
-	('Kashmiri chili powder', 3, 'Added fats and oils, olives and nuts'),
-	('Kasuri methi (dried fenugreek leaves)', 2, 'Vegetables'),
-	('Ladyfingers', 3, 'Cereal and Potatoes'),
-	('Lamb', 2, 'Red Meat'),
-	('Lemon juice', 1, 'Fruits'),
-	('Lemongrass', 1, 'Vegetables'),
-	('Lime juice', 1, 'Fruits'),
-	('Marsala wine', 3, 'Added fats and oils, olives and nuts'),
-	('Mascarpone cheese', 4, 'Milk and Dairy Products'),
-	('Milk', 1, 'Milk and Dairy Products'),
-	('Mint', 0, 'Vegetables'),
-	('Mint leaves', 0, 'Vegetables'),
-	('Mirin', 1, NULL),
-	('Mitmita Spice', 0, NULL),
-	('Mixed greens', 1, 'Vegetables'),
-	('Mixed vegetables', 0, 'Vegetables'),
-	('Mozzarella cheese', 4, 'Milk and Dairy Products'),
-	('Mushrooms', 1, 'Vegetables'),
-	('Mustard', 2, 'Added fats and oils, olives and nuts'),
-	('Napa Cabbage', 0, 'Vegetables'),
-	('Noodles', 3, 'Cereal and Potatoes'),
-	('Nori (seaweed)', 2, 'Fish and Seafood'),
-	('Nutmeg', 1, 'Vegetables'),
-	('Olive Oil', 9, 'Added fats and oils, olives and nuts'),
-	('Onion', 1, 'Vegetables'),
-	('Onion Powder', 3, NULL),
-	('Onions', 0, 'Vegetables'),
-	('Oranges', 1, 'Fruits'),
-	('Paneer', 2, 'Milk and Dairy Products'),
-	('Paneer cheese', 4, 'Milk and Dairy Products'),
-	('Paprika', 0, NULL),
-	('Parmesan cheese', 4, 'Milk and Dairy Products'),
-	('Parsley', 0, 'Vegetables'),
-	('Pasta', 4, 'Cereal and Potatoes'),
-	('Peanuts', 6, 'Added fats and oils, olives and nuts'),
-	('Phyllo dough', 3, 'Cereal and Potatoes'),
-	('Pickled Carrots', 1, 'Vegetables'),
-	('Pickled ginger', 1, 'Vegetables'),
-	('Pineapple', 3, 'Fruits'),
-	('Pita chips', 3, 'Cereal and Potatoes'),
-	('Pizza dough', 3, 'Cereal and Potatoes'),
-	('Poblano peppers', 1, 'Vegetables'),
-	('Pomegranate seeds', 1, 'Fruits'),
-	('Pork', 3, 'White Meat'),
-	('Pork Ribs', 3, 'Red Meat'),
-	('Potato', 1, 'Cereal and Potatoes'),
-	('Potatoes', 1, 'Cereal and Potatoes'),
-	('Radishes', 1, 'Vegetables'),
-	('Red bell pepper', 0, 'Vegetables'),
-	('Red onion', 1, 'Vegetables'),
-	('Red wine', 3, 'Added fats and oils, olives and nuts'),
-	('Rice', 1, 'Cereal and Potatoes'),
-	('Rice Noodles', 1, 'Cereal and Potatoes'),
-	('Rice Paper', 1, 'Cereal and Potatoes'),
-	('Rice vermicelli', 2, 'Cereal and Potatoes'),
-	('Rice vinegar', 3, 'Added fats and oils, olives and nuts'),
-	('Ricotta cheese', 2, 'Milk and Dairy Products'),
-	('Saffron', 3, 'Added fats and oils, olives and nuts'),
-	('Salsa', 0, NULL),
-	('Salt', 0, NULL),
-	('Seafood', 4, 'Fish and Seafood'),
-	('Seaweed', 1, 'Vegetables'),
-	('Sesame oil', 9, 'Added fats and oils, olives and nuts'),
-	('Shrimp', 3, 'Fish and Seafood'),
-	('Sichuan peppercorns', 6, 'Added fats and oils, olives and nuts'),
-	('Silken tofu', 1, 'Vegetables'),
-	('Soy Sauce', 2, 'Added fats and oils, olives and nuts'),
-	('Spaghetti', 3, 'Cereal and Potatoes'),
-	('Spinach', 1, 'Vegetables'),
-	('Sugar', 4, NULL),
-	('Sumac', 1, 'Vegetables'),
-	('Tahini', 6, 'Added fats and oils, olives and nuts'),
-	('Tamarind paste', 2, 'Fruits'),
-	('Tandoori masala', 4, NULL),
-	('Tapioca Flour', 1, 'Cereal and Potatoes'),
-	('Teff Flour', 1, 'Cereal and Potatoes'),
-	('Tempura batter', 4, 'Added fats and oils, olives and nuts'),
-	('Thai basil', 1, 'Vegetables'),
-	('Thai chilies', 1, 'Vegetables'),
-	('Thyme', 1, 'Vegetables'),
-	('Tofu', 2, 'Legumes'),
-	('Tomato', 0, 'Vegetables'),
-	('Tomato sauce', 2, 'Vegetables'),
-	('Tomatoes', 2, 'Vegetables'),
-	('Tortillas', 3, 'Cereal and Potatoes'),
-	('Turmeric', 0, NULL),
-	('Veal', 2, 'Red Meat'),
-	('Veal shanks', 2, 'White Meat'),
-	('Vegetables', 0, 'Vegetables'),
-	('Vermicelli Noodles', 1, 'Cereal and Potatoes'),
-	('Walnuts', 6, 'Added fats and oils, olives and nuts'),
-	('Wasabi', 1, 'Vegetables'),
-	('Water', 0, NULL),
-	('White pepper', 3, NULL),
-	('White wine', 1, NULL),
-	('Yeast', 0, 'Cereal and Potatoes'),
-	('Yogurt', 3, 'Milk and Dairy Products'),
-	('Zucchini', 1, 'Vegetables');
-
--- Dumping structure for πίνακας cooking.judge
-CREATE TABLE IF NOT EXISTS `judge` (
-  `judge_id` int(11) NOT NULL AUTO_INCREMENT,
-  `episode_id` int(11) NOT NULL,
-  `cook_id` int(11) NOT NULL,
-  PRIMARY KEY (`judge_id`),
-  KEY `episode_fk1` (`episode_id`),
-  KEY `cook_fk3` (`cook_id`),
-  CONSTRAINT `cook_fk3` FOREIGN KEY (`cook_id`) REFERENCES `cook` (`cook_id`),
-  CONSTRAINT `episode_fk1` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`episode_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.judge: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.meal_recipe
-CREATE TABLE IF NOT EXISTS `meal_recipe` (
-  `recipe_name` varchar(50) NOT NULL,
-  `meal_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`meal_name`),
-  CONSTRAINT `meal_recipe_ibfk_1` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.meal_recipe: ~112 rows (approximately)
+	('Vietnamese Spring Rolls', 'Vietnamese'),
+	('Turkish Lamb Kebab', 'Turkish'),
+   ('Russian Beef Stroganoff', 'Russian');
+	
 INSERT INTO `meal_recipe` (`recipe_name`, `meal_name`) VALUES
 	('Apple Pie', 'Dessert'),
 	('Banh Mi', 'Lunch'),
@@ -1261,224 +1015,84 @@ INSERT INTO `meal_recipe` (`recipe_name`, `meal_name`) VALUES
 	('Tom Yum Soup', 'Lunch'),
 	('Tortilla Española', 'Breakfast'),
 	('Vietnamese Spring Rolls', 'Dinner'),
-	('Vietnamese Spring Rolls', 'Lunch');
-
--- Dumping structure for πίνακας cooking.national_cuisine
-CREATE TABLE IF NOT EXISTS `national_cuisine` (
-  `cuisine_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`cuisine_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.national_cuisine: ~20 rows (approximately)
-INSERT INTO `national_cuisine` (`cuisine_name`) VALUES
-	('American'),
-	('Brazilian'),
-	('Chinese'),
-	('Ethiopian'),
-	('French'),
-	('Greek'),
-	('Indian'),
-	('Israeli'),
-	('Italian'),
-	('Japanese'),
-	('Korean'),
-	('Latin American'),
-	('Lebanese'),
-	('Mexican'),
-	('Moroccan'),
-	('Russian'),
-	('Spanish'),
-	('Thai'),
-	('Turkish'),
-	('Vietnamese');
-
--- Dumping structure for πίνακας cooking.nutrition_information
-CREATE TABLE IF NOT EXISTS `nutrition_information` (
-  `info_id` int(11) NOT NULL AUTO_INCREMENT,
-  `recipe_name` varchar(50) NOT NULL,
-  `gram_fat` int(11) DEFAULT NULL,
-  `gram_prot` int(11) DEFAULT NULL,
-  `gram_carbo` int(11) DEFAULT NULL,
-  `calories` int(11) DEFAULT NULL,
-  PRIMARY KEY (`info_id`),
-  KEY `recipe_name` (`recipe_name`),
-  CONSTRAINT `nutrition_information_ibfk_1` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.nutrition_information: ~70 rows (approximately)
+	('Vietnamese Spring Rolls', 'Lunch'),
+	('Turkish Lamb Kebab', 'Dinner'),
+	('Russian Beef Stroganoff', 'Dinner');
+	
 INSERT INTO `nutrition_information` (`info_id`, `recipe_name`, `gram_fat`, `gram_prot`, `gram_carbo`, `calories`) VALUES
-	(1, 'Spaghetti Carbonara', 15, 25, 30, 1300),
-	(2, 'Coq au Vin', 20, 30, 20, 4800),
-	(3, 'Kung Pao Chicken', 18, 28, 25, 2250),
-	(4, 'Chicken Tikka Masala', 22, 24, 35, 3100),
-	(5, 'Tacos al Pastor', 12, 20, 15, 3000),
-	(6, 'Sushi Rolls', 8, 15, 40, 750),
-	(7, 'Tom Yum Soup', 5, 10, 15, 1360),
-	(8, 'Greek Salad', 10, 5, 20, 850),
-	(9, 'Paella', 15, 30, 40, 2350),
-	(10, 'Hummus', 10, 5, 20, 1850),
-	(11, 'Margherita Pizza', 20, 15, 30, 1950),
-	(12, 'Beef Bourguignon', 25, 35, 20, 4000),
-	(13, 'Mapo Tofu', 10, 20, 15, 2200),
-	(14, 'Chicken Biryani', 30, 25, 45, 2900),
-	(15, 'Guacamole', 15, 5, 20, 1600),
-	(16, 'Tempura', 12, 18, 30, 2400),
-	(17, 'Pad Thai', 15, 20, 40, 2200),
-	(18, 'Moussaka', 20, 25, 35, 3600),
-	(19, 'Gazpacho', 5, 2, 10, 200),
-	(20, 'Falafel', 10, 15, 25, 1200),
-	(21, 'Lasagna', 25, 20, 35, 3900),
-	(22, 'Ratatouille', 10, 5, 25, 1200),
-	(23, 'Peking Duck', 30, 35, 20, 5600),
-	(24, 'Palak Paneer', 15, 20, 25, 1700),
-	(25, 'Chiles en Nogada', 18, 20, 30, 1200),
-	(26, 'Sashimi', 5, 20, 10, 2200),
-	(27, 'Tom Kha Gai', 8, 12, 15, 3810),
-	(28, 'Dolmades', 12, 5, 25, 500),
-	(29, 'Fattoush', 8, 5, 20, 600),
-	(30, 'Carbonnade Flamande', 25, 30, 25, 4400),
-	(31, 'Tiramisu', 20, 10, 40, 1700),
-	(32, 'Crepes Suzette', 18, 8, 35, 500),
-	(33, 'Kung Pao Shrimp', 15, 22, 30, 1400),
-	(34, 'Butter Chicken', 20, 25, 30, 2500),
-	(35, 'Enchiladas', 22, 18, 25, 1950),
-	(36, 'Tempura Vegetables', 10, 8, 30, 400),
-	(37, 'Thai Green Curry', 12, 15, 25, 3800),
-	(38, 'Spanakopita', 15, 10, 30, 2000),
-	(39, 'Tabbouleh', 5, 8, 20, 400),
-	(40, 'Osso Buco', 30, 35, 25, 4200),
-	(41, 'Hot and Sour Soup', 8, 10, 15, 800),
-	(42, 'Paneer Tikka', 12, 18, 25, 2800),
-	(43, 'Chilaquiles', 20, 15, 30, 900),
-	(44, 'Miso Soup', 5, 10, 10, 700),
-	(45, 'Ceviche', 10, 20, 15, 2200),
-	(46, 'Eggplant Parmesan', 18, 15, 30, 2000),
-	(47, 'Vietnamese Spring Rolls', 8, 12, 20, 1600),
-	(48, 'Chicken Korma', 20, 25, 35, 2400),
-	(49, 'Caprese Pizza', 20, 15, 30, 1300),
-	(50, 'Gyoza', 15, 20, 25, 1200),
-	(51, 'Pasta Primavera', 12, 15, 35, 1200),
-	(52, 'Tofu Curry', 10, 18, 25, 1800),
-	(53, 'Pho', 8, 12, 25, 1750),
-	(54, 'Banh Mi', 12, 18, 30, 900),
-	(55, 'Spring Rolls', 6, 8, 15, 600),
-	(56, 'Beef Stew', 20, 25, 35, 2900),
-	(57, 'Apple Pie', 15, 10, 40, 2000),
-	(58, 'BBQ Ribs', 30, 28, 15, 3460),
-	(59, 'Feijoada', 25, 30, 20, 3320),
-	(60, 'Pão de Queijo', 18, 12, 22, 2850),
-	(61, 'Brigadeiro', 8, 5, 20, 2360),
-	(62, 'Kimchi', 3, 2, 5, 50),
-	(63, 'Bibimbap', 15, 20, 30, 750),
-	(64, 'Bulgogi', 18, 22, 25, 1740),
-	(65, 'Doro Wat', 22, 28, 18, 3020),
-	(66, 'Injera', 5, 3, 10, 300),
-	(67, 'Kitfo', 25, 30, 15, 2200),
-	(68, 'Lamb Tagine', 20, 30, 40, 2545),
-	(69, 'Tortilla Española', 15, 25, 35, 1370),
-	(70, 'Shakshuka', 10, 20, 30, 398);
-
--- Dumping structure for πίνακας cooking.recipes
-CREATE TABLE IF NOT EXISTS `recipes` (
-  `recipe_name` varchar(50) NOT NULL,
-  `short_desc` varchar(200) NOT NULL,
-  `difficulty_level` enum('1','2','3','4','5') NOT NULL,
-  `tip1` varchar(200) DEFAULT NULL,
-  `tip2` varchar(200) DEFAULT NULL,
-  `tip3` varchar(200) DEFAULT NULL,
-  `prep_time` time NOT NULL,
-  `cooking_time` time NOT NULL,
-  `quantities` int(11) NOT NULL,
-  `main_ingredient` varchar(50) NOT NULL,
-  PRIMARY KEY (`recipe_name`),
-  KEY `ingredients_fk_2` (`main_ingredient`),
-  CONSTRAINT `ingredients_fk_2` FOREIGN KEY (`main_ingredient`) REFERENCES `ingredients` (`ingredient_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.recipes: ~70 rows (approximately)
-INSERT INTO `recipes` (`recipe_name`, `short_desc`, `difficulty_level`, `tip1`, `tip2`, `tip3`, `prep_time`, `cooking_time`, `quantities`, `main_ingredient`) VALUES
-	('Apple Pie', 'Classic American apple pie with a flaky crust.', '4', 'Use a mix of sweet and tart apples.', 'Brush the crust with egg wash.', NULL, '00:30:00', '01:00:00', 8, 'Apple'),
-	('Banh Mi', 'Vietnamese sandwich with pickled vegetables and meat.', '2', 'Use a crusty baguette.', NULL, NULL, '00:15:00', '00:20:00', 2, 'Pork'),
-	('BBQ Ribs', 'American BBQ ribs with smoky flavor.', '3', 'Marinate the ribs overnight.', NULL, NULL, '00:15:00', '03:00:00', 4, 'Pork Ribs'),
-	('Beef Bourguignon', 'French beef stew cooked in red wine', '4', 'Use a good quality red wine', 'Cook slowly for tender meat', 'Serve with crusty bread', '00:30:00', '02:30:00', 6, 'Beef'),
-	('Beef Stew', 'Hearty American beef stew with vegetables.', '3', 'Brown the beef first.', 'Use red wine for depth of flavor.', NULL, '00:20:00', '03:00:00', 6, 'Beef'),
-	('Bibimbap', 'Korean rice bowl with assorted toppings.', '3', 'Use a variety of vegetables.', 'Serve with a fried egg on top.', 'Mix well before eating.', '00:20:00', '00:30:00', 4, 'Rice'),
-	('Brigadeiro', 'Brazilian chocolate truffles.', '1', 'Use good quality cocoa powder.', NULL, NULL, '00:10:00', '00:10:00', 20, 'Condensed Milk'),
-	('Bulgogi', 'Korean marinated beef.', '2', 'Marinate the beef overnight.', 'Cook on high heat.', 'Serve with rice and lettuce wraps.', '00:20:00', '00:15:00', 4, 'Beef'),
-	('Butter Chicken', 'Indian creamy tomato-based chicken curry', '3', 'Marinate chicken for better flavor', 'Use fresh cream for richness', NULL, '00:20:00', '00:30:00', 4, 'Chicken'),
-	('Caprese Pizza', 'Italian pizza topped with tomatoes, mozzarella cheese, and basil', '2', 'Use fresh basil leaves', 'Top with fresh mozzarella', NULL, '00:20:00', '00:15:00', 4, 'Pizza dough'),
-	('Carbonnade Flamande', 'Belgian beef and beer stew', '4', 'Use Belgian beer for authenticity', 'Cook slowly for tender meat', NULL, '00:30:00', '02:00:00', 6, 'Beef'),
-	('Ceviche', 'Latin American seafood dish marinated in citrus juices', '2', 'Use fresh lime juice', 'Serve chilled', NULL, '00:15:00', '00:00:00', 4, 'Fish'),
-	('Chicken Biryani', 'Fragrant Indian rice dish with chicken and spices', '4', 'Marinate chicken for better flavor', 'Use basmati rice for best results', NULL, '00:30:00', '01:00:00', 6, 'Chicken'),
-	('Chicken Korma', 'Indian chicken curry cooked with yogurt, cream, and spices', '3', 'Marinate chicken for better flavor', 'Use fresh cream for richness', NULL, '00:30:00', '00:45:00', 4, 'Chicken'),
-	('Chicken Tikka Masala', 'Iconic Indian curry dish', '3', 'Marinate chicken for at least 2 hours', NULL, NULL, '00:30:00', '00:30:00', 4, 'Chicken'),
-	('Chilaquiles', 'Mexican tortilla casserole with salsa and cheese', '2', 'Use fresh salsa', 'Top with sour cream and cheese', NULL, '00:20:00', '00:30:00', 4, 'Tortillas'),
-	('Chiles en Nogada', 'Mexican stuffed poblano peppers with walnut sauce', '4', 'Use fresh pomegranates for garnish', 'Serve at room temperature', 'Use roasted walnuts for the sauce', '00:30:00', '00:45:00', 6, 'Poblano peppers'),
-	('Coq au Vin', 'Classic French chicken dish', '4', 'Marinate overnight for best flavor', 'Use a good quality red wine', NULL, '00:20:00', '01:30:00', 6, 'Chicken'),
-	('Crepes Suzette', 'French thin pancakes with orange sauce and Grand Marnier', '3', 'Use fresh orange juice', 'Flambe with Grand Marnier', NULL, '00:15:00', '00:15:00', 4, 'Flour'),
-	('Dolmades', 'Greek stuffed grape leaves with rice and herbs', '3', 'Use fresh grape leaves', 'Serve with lemon wedges', 'Add fresh dill for extra flavor', '00:30:00', '00:45:00', 6, 'Grape leaves'),
-	('Doro Wat', 'Ethiopian spicy chicken stew.', '4', 'Use berbere spice mix.', 'Serve with injera.', NULL, '00:20:00', '01:30:00', 6, 'Chicken'),
-	('Eggplant Parmesan', 'Italian baked eggplant dish with tomato sauce and cheese', '3', 'Use fresh eggplants', 'Top with mozzarella cheese', NULL, '00:30:00', '00:45:00', 4, 'Eggplant'),
-	('Enchiladas', 'Mexican rolled tortillas stuffed with meat and cheese, topped with sauce', '3', 'Use fresh tortillas', 'Top with cheese and bake until bubbly', NULL, '00:20:00', '00:30:00', 4, 'Tortillas'),
-	('Falafel', 'Lebanese fried chickpea patties', '2', 'Use dried chickpeas soaked overnight', 'Add fresh herbs for better flavor', NULL, '00:20:00', '00:20:00', 4, 'Chickpeas'),
-	('Fattoush', 'Lebanese salad with mixed greens, vegetables, and pita chips', '2', 'Use toasted pita chips', 'Add sumac for extra tang', NULL, '00:15:00', '00:00:00', 4, 'Mixed greens'),
-	('Feijoada', 'Brazilian black bean stew with pork.', '3', 'Use a variety of pork cuts.', 'Serve with orange slices.', 'Add a bay leaf for extra flavor.', '00:30:00', '02:30:00', 6, 'Black Beans'),
-	('Gazpacho', 'Traditional Spanish cold tomato soup', '1', 'Serve chilled', NULL, NULL, '00:15:00', '00:00:00', 4, 'Tomato'),
-	('Greek Salad', 'Traditional Greek salad', '1', 'Use fresh and ripe tomatoes', 'Add olives for extra flavor', NULL, '00:10:00', '00:00:00', 2, 'Tomato'),
-	('Guacamole', 'Mexican avocado dip with tomatoes and lime', '1', 'Use ripe avocados', 'Add lime juice to prevent browning', NULL, '00:15:00', '00:00:00', 4, 'Avocado'),
-	('Gyoza', 'Japanese pan-fried dumplings filled with ground meat and vegetables', '3', 'Use fresh ginger for better flavor', 'Serve with dipping sauce', NULL, '00:30:00', '00:20:00', 4, 'Pork'),
-	('Hot and Sour Soup', 'Chinese spicy and tangy soup with mushrooms and tofu', '2', 'Use fresh tofu', NULL, NULL, '00:20:00', '00:20:00', 4, 'Tofu'),
-	('Hummus', 'Classic Lebanese dip', '1', 'Use fresh lemon juice', 'Add a pinch of cumin for extra flavor', NULL, '00:10:00', '00:00:00', 4, 'Chickpeas'),
-	('Injera', 'Ethiopian sourdough flatbread.', '4', 'Ferment the batter for 3 days.', 'Cook on a hot griddle.', NULL, '00:10:00', '00:05:00', 12, 'Teff Flour'),
-	('Kimchi', 'Spicy fermented Korean cabbage.', '3', 'Use Korean chili powder.', 'Ferment for at least a week.', NULL, '00:30:00', '00:00:00', 10, 'Cabbage'),
-	('Kitfo', 'Ethiopian seasoned raw beef.', '3', 'Use high-quality beef.', 'Serve with injera or bread.', NULL, '00:15:00', '00:00:00', 4, 'Beef'),
-	('Kung Pao Chicken', 'Popular Chinese stir-fry dish', '3', 'Prepare all ingredients before cooking', NULL, NULL, '00:15:00', '00:20:00', 4, 'Chicken'),
-	('Kung Pao Shrimp', 'Chinese stir-fried shrimp dish with peanuts and chili peppers', '3', 'Prepare all ingredients before cooking', 'Adjust spice level to taste', NULL, '00:15:00', '00:15:00', 4, 'Shrimp'),
-	('Lamb Tagine', 'Moroccan slow-cooked lamb stew with spices and dried fruits', '4', 'Use a tagine pot for best results', 'Cook slowly for tender meat', 'Serve with couscous', '00:20:00', '02:00:00', 6, 'Lamb'),
-	('Lasagna', 'Classic Italian layered pasta dish with meat and cheese', '4', 'Use ricotta cheese for creaminess', 'Let it rest before serving', NULL, '00:30:00', '01:00:00', 6, 'Pasta'),
-	('Mapo Tofu', 'Spicy Chinese tofu dish with minced meat', '3', 'Use soft tofu for best texture', NULL, NULL, '00:20:00', '00:20:00', 4, 'Tofu'),
-	('Margherita Pizza', 'Classic Italian pizza with tomato, mozzarella, and basil', '2', 'Use fresh basil leaves', 'Bake on a pizza stone for best results', NULL, '00:20:00', '00:15:00', 4, 'Pizza dough'),
-	('Miso Soup', 'Japanese soup made with soybean paste, tofu, and seaweed', '2', 'Use miso paste for authentic flavor', 'Serve hot', NULL, '00:10:00', '00:10:00', 4, 'Tofu'),
-	('Moussaka', 'Greek eggplant and lamb casserole with bechamel sauce', '4', 'Let it rest before serving', NULL, NULL, '00:30:00', '01:00:00', 6, 'Eggplant'),
-	('Osso Buco', 'Italian braised veal shanks with vegetables and white wine', '4', 'Cook slowly for tender meat', 'Serve with gremolata', 'Pair with a glass of white wine', '00:30:00', '02:00:00', 6, 'Veal'),
-	('Pad Thai', 'Classic Thai stir-fried noodle dish with shrimp', '3', 'Use tamarind paste for authentic taste', 'Add peanuts for extra crunch', NULL, '00:20:00', '00:15:00', 4, 'Noodles'),
-	('Paella', 'Traditional Spanish rice dish', '4', 'Use saffron for authentic taste', 'Cook rice evenly for best texture', 'Serve with lemon wedges', '00:20:00', '00:30:00', 6, 'Rice'),
-	('Palak Paneer', 'Indian spinach curry with paneer cheese', '3', 'Use fresh spinach', 'Add cream for richness', NULL, '00:20:00', '00:30:00', 4, 'Spinach'),
-	('Paneer Tikka', 'Indian grilled paneer cheese skewers with spices and vegetables', '3', 'Marinate paneer for at least 2 hours', 'Use skewers for grilling', NULL, '00:20:00', '00:15:00', 4, 'Paneer'),
-	('Pão de Queijo', 'Brazilian cheese bread.', '2', 'Use tapioca flour.', 'Grate the cheese finely.', NULL, '00:15:00', '00:25:00', 24, 'Cheese'),
-	('Pasta Primavera', 'Italian pasta dish with fresh vegetables and Parmesan cheese', '2', 'Use seasonal vegetables', 'Top with grated Parmesan', NULL, '00:20:00', '00:20:00', 4, 'Pasta'),
-	('Peking Duck', 'Chinese roast duck dish with crispy skin', '5', 'Air-dry duck for crispy skin', 'Serve with hoisin sauce', NULL, '00:30:00', '02:00:00', 6, 'Duck'),
-	('Pho', 'Traditional Vietnamese noodle soup with beef or chicken.', '3', 'Use fresh herbs for garnish.', 'Serve with lime wedges.', NULL, '00:20:00', '02:00:00', 4, 'Beef'),
-	('Ratatouille', 'French vegetable stew with tomatoes, eggplant, and zucchini', '3', 'Use fresh vegetables', 'Serve with crusty bread', NULL, '00:20:00', '00:40:00', 4, 'Vegetables'),
-	('Sashimi', 'Japanese sliced raw fish dish', '3', 'Use sushi-grade fish', 'Serve with soy sauce and wasabi', NULL, '00:30:00', '00:00:00', 4, 'Fish'),
-	('Shakshuka', 'Middle Eastern poached eggs in spicy tomato sauce', '2', 'Use fresh tomatoes', 'Top with crumbled feta', NULL, '00:15:00', '00:15:00', 4, 'Tomato'),
-	('Spaghetti Carbonara', 'Classic Italian pasta dish', '3', 'Use fresh eggs', 'Keep in fridge for up to 3 days', NULL, '00:15:00', '00:20:00', 4, 'Spaghetti'),
-	('Spanakopita', 'Greek spinach and feta cheese pie in phyllo pastry', '3', 'Use fresh spinach', 'Brush phyllo with melted butter', NULL, '00:30:00', '00:30:00', 6, 'Spinach'),
-	('Spring Rolls', 'Fresh Vietnamese spring rolls with shrimp or pork.', '2', 'Use fresh mint and cilantro.', 'Soak rice paper briefly.', NULL, '00:30:00', '00:10:00', 4, 'Shrimp'),
-	('Sushi Rolls', 'Japanese sushi rolls', '3', 'Use sushi-grade fish', 'Keep hands wet to prevent sticking', NULL, '00:45:00', '00:30:00', 4, 'Rice'),
-	('Tabbouleh', 'Lebanese parsley and bulgur wheat salad with tomatoes and mint', '2', 'Use fresh mint leaves', 'Chill before serving', NULL, '00:15:00', '00:00:00', 4, 'Parsley'),
-	('Tacos al Pastor', 'Traditional Mexican street food', '2', 'Use fresh pineapple for best taste', 'Grill meat for authentic flavor', NULL, '00:20:00', '00:30:00', 6, 'Pork'),
-	('Tempura', 'Japanese deep-fried seafood and vegetables', '3', 'Use ice-cold batter for crispiness', 'Fry in small batches', NULL, '00:20:00', '00:10:00', 4, 'Seafood'),
-	('Tempura Vegetables', 'Japanese deep-fried battered vegetables', '2', 'Use ice-cold batter for crispiness', 'Serve with tempura dipping sauce', NULL, '00:20:00', '00:10:00', 4, 'Vegetables'),
-	('Thai Green Curry', 'Thai spicy coconut milk-based curry with chicken and vegetables', '3', 'Use fresh lemongrass', 'Serve with jasmine rice', NULL, '00:20:00', '00:30:00', 4, 'Chicken'),
-	('Tiramisu', 'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone', '2', 'Use strong espresso', 'Chill overnight for best flavor', NULL, '00:30:00', '00:00:00', 6, 'Ladyfingers'),
-	('Tofu Curry', 'Asian curry dish with tofu, vegetables, and coconut milk', '2', 'Use firm tofu', 'Serve with steamed rice', NULL, '00:25:00', '00:25:00', 4, 'Tofu'),
-	('Tom Kha Gai', 'Thai coconut chicken soup with lemongrass and galangal', '2', 'Use fresh herbs for best flavor', NULL, NULL, '00:20:00', '00:20:00', 4, 'Chicken'),
-	('Tom Yum Soup', 'Classic Thai spicy soup', '2', 'Use fresh herbs for better flavor', NULL, NULL, '00:15:00', '00:20:00', 4, 'Shrimp'),
-	('Tortilla Española', 'Spanish potato omelette', '2', 'Use waxy potatoes', 'Let it cool before serving', NULL, '00:10:00', '00:30:00', 4, 'Potato'),
-	('Vietnamese Spring Rolls', 'Vietnamese rice paper rolls filled with shrimp, vegetables, and vermicelli noodles', '2', 'Use fresh herbs for best flavor', 'Serve with dipping sauce', NULL, '00:30:00', '00:30:00', 4, 'Shrimp');
-
--- Dumping structure for πίνακας cooking.recipes_equipment
-CREATE TABLE IF NOT EXISTS `recipes_equipment` (
-  `recipe_name` varchar(50) NOT NULL,
-  `equipment_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`equipment_name`),
-  KEY `equipment_fk` (`equipment_name`),
-  CONSTRAINT `equipment_fk` FOREIGN KEY (`equipment_name`) REFERENCES `equipment` (`equipment_name`),
-  CONSTRAINT `recipes_fk_1` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.recipes_equipment: ~197 rows (approximately)
+	(1, 'Spaghetti Carbonara', 15, 25, 30, NULL),
+	(2, 'Coq au Vin', 20, 30, 20, NULL),
+	(3, 'Kung Pao Chicken', 18, 28, 25, NULL),
+	(4, 'Chicken Tikka Masala', 22, 24, 35, NULL),
+	(5, 'Tacos al Pastor', 12, 20, 15, NULL),
+	(6, 'Sushi Rolls', 8, 15, 40, NULL),
+	(7, 'Tom Yum Soup', 5, 10, 15, NULL),
+	(8, 'Greek Salad', 10, 5, 20, NULL),
+	(9, 'Paella', 15, 30, 40, NULL),
+	(10, 'Hummus', 10, 5, 20, NULL),
+	(11, 'Margherita Pizza', 20, 15, 30, NULL),
+	(12, 'Beef Bourguignon', 25, 35, 20, NULL),
+	(13, 'Mapo Tofu', 10, 20, 15, NULL),
+	(14, 'Chicken Biryani', 30, 25, 45, NULL),
+	(15, 'Guacamole', 15, 5, 20, NULL),
+	(16, 'Tempura', 12, 18, 30, NULL),
+	(17, 'Pad Thai', 15, 20, 40, NULL),
+	(18, 'Moussaka', 20, 25, 35, NULL),
+	(19, 'Gazpacho', 5, 2, 10, NULL),
+	(20, 'Falafel', 10, 15, 25, NULL),
+	(21, 'Lasagna', 25, 20, 35, NULL),
+	(22, 'Ratatouille', 10, 5, 25, NULL),
+	(23, 'Peking Duck', 30, 35, 20, NULL),
+	(24, 'Palak Paneer', 15, 20, 25, NULL),
+	(25, 'Chiles en Nogada', 18, 20, 30, NULL),
+	(26, 'Sashimi', 5, 20, 10, NULL),
+	(27, 'Tom Kha Gai', 8, 12, 15, NULL),
+	(28, 'Dolmades', 12, 5, 25, NULL),
+	(29, 'Fattoush', 8, 5, 20, NULL),
+	(30, 'Carbonnade Flamande', 25, 30, 25, NULL),
+	(31, 'Tiramisu', 20, 10, 40, NULL),
+	(32, 'Crepes Suzette', 18, 8, 35, NULL),
+	(33, 'Kung Pao Shrimp', 15, 22, 30, NULL),
+	(34, 'Butter Chicken', 20, 25, 30, NULL),
+	(35, 'Enchiladas', 22, 18, 25, NULL),
+	(36, 'Tempura Vegetables', 10, 8, 30, NULL),
+	(37, 'Thai Green Curry', 12, 15, 25, NULL),
+	(38, 'Spanakopita', 15, 10, 30, NULL),
+	(39, 'Tabbouleh', 5, 8, 20, NULL),
+	(40, 'Osso Buco', 30, 35, 25, NULL),
+	(41, 'Hot and Sour Soup', 8, 10, 15, NULL),
+	(42, 'Paneer Tikka', 12, 18, 25, NULL),
+	(43, 'Chilaquiles', 20, 15, 30, NULL),
+	(44, 'Miso Soup', 5, 10, 10, NULL),
+	(45, 'Ceviche', 10, 20, 15, NULL),
+	(46, 'Eggplant Parmesan', 18, 15, 30, NULL),
+	(47, 'Vietnamese Spring Rolls', 8, 12, 20, NULL),
+	(48, 'Chicken Korma', 20, 25, 35, NULL),
+	(49, 'Caprese Pizza', 20, 15, 30, NULL),
+	(50, 'Gyoza', 15, 20, 25, NULL),
+	(51, 'Pasta Primavera', 12, 15, 35, NULL),
+	(52, 'Tofu Curry', 10, 18, 25, NULL),
+	(53, 'Pho', 8, 12, 25, NULL),
+	(54, 'Banh Mi', 12, 18, 30, NULL),
+	(55, 'Spring Rolls', 6, 8, 15, NULL),
+	(56, 'Beef Stew', 20, 25, 35, NULL),
+	(57, 'Apple Pie', 15, 10, 40, NULL),
+	(58, 'BBQ Ribs', 30, 28, 15, NULL),
+	(59, 'Feijoada', 25, 30, 20, NULL),
+	(60, 'Pão de Queijo', 18, 12, 22, NULL),
+	(61, 'Brigadeiro', 8, 5, 20, NULL),
+	(62, 'Kimchi', 3, 2, 5, NULL),
+	(63, 'Bibimbap', 15, 20, 30, NULL),
+	(64, 'Bulgogi', 18, 22, 25, NULL),
+	(65, 'Doro Wat', 22, 28, 18, NULL),
+	(66, 'Injera', 5, 3, 10, NULL),
+	(67, 'Kitfo', 25, 30, 15, NULL),
+	(68, 'Lamb Tagine', 20, 30, 40, NULL),
+	(69, 'Tortilla Española', 15, 25, 35, NULL),
+	(70, 'Shakshuka', 10, 20, 30, NULL),
+	(71, 'Turkish Lamb Kebab', 50, 60, 10, NULL),
+	(72,'Russian Beef Stroganoff', 40, 50, 20, NULL);
+	
 INSERT INTO `recipes_equipment` (`recipe_name`, `equipment_name`) VALUES
 	('Chiles en Nogada', 'Baking Dish'),
 	('Eggplant Parmesan', 'Baking Dish'),
@@ -1676,22 +1290,11 @@ INSERT INTO `recipes_equipment` (`recipe_name`, `equipment_name`) VALUES
 	('Kung Pao Chicken', 'Wok'),
 	('Kung Pao Shrimp', 'Wok'),
 	('Mapo Tofu', 'Wok'),
-	('Pad Thai', 'Wok');
-
--- Dumping structure for πίνακας cooking.recipes_ingredients
-CREATE TABLE IF NOT EXISTS `recipes_ingredients` (
-  `recipe_name` varchar(50) NOT NULL,
-  `ingredient_name` varchar(50) NOT NULL,
-  `quantity_gr` int(11) DEFAULT NULL,
-  `quantity_approx` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`recipe_name`,`ingredient_name`),
-  KEY `ingredients_fk_1` (`ingredient_name`),
-  CONSTRAINT `ingredients_fk_1` FOREIGN KEY (`ingredient_name`) REFERENCES `ingredients` (`ingredient_name`),
-  CONSTRAINT `recipes_fk_3` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`),
-  CONSTRAINT `check_either_not_null` CHECK (`quantity_gr` is not null and `quantity_approx` is null or `quantity_gr` is null and `quantity_approx` is not null)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.recipes_ingredients: ~280 rows (approximately)
+	('Pad Thai', 'Wok'),
+	('Turkish Lamb Kebab', 'Grill'),
+   ('Russian Beef Stroganoff', 'Frying Pan'),
+   ('Russian Beef Stroganoff', 'Knife');
+	
 INSERT INTO `recipes_ingredients` (`recipe_name`, `ingredient_name`, `quantity_gr`, `quantity_approx`) VALUES
 	('Apple Pie', 'Apple', NULL, '5'),
 	('Apple Pie', 'Apples', 500, NULL),
@@ -1997,32 +1600,16 @@ INSERT INTO `recipes_ingredients` (`recipe_name`, `ingredient_name`, `quantity_g
 	('Vietnamese Spring Rolls', 'Mint leaves', NULL, '1/4 cup'),
 	('Vietnamese Spring Rolls', 'Rice paper', NULL, '20 sheets'),
 	('Vietnamese Spring Rolls', 'Rice vermicelli', 200, NULL),
-	('Vietnamese Spring Rolls', 'Shrimp', 400, NULL);
-
--- Dumping structure for πίνακας cooking.recipe_specialization
-CREATE TABLE IF NOT EXISTS `recipe_specialization` (
-  `recipe_name` varchar(30) NOT NULL,
-  `cook_id` int(11) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`cook_id`),
-  KEY `cook_fk2` (`cook_id`),
-  CONSTRAINT `cook_fk2` FOREIGN KEY (`cook_id`) REFERENCES `cook` (`cook_id`),
-  CONSTRAINT `recipe_fk4` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.recipe_specialization: ~0 rows (approximately)
-
--- Dumping structure for πίνακας cooking.steps
-CREATE TABLE IF NOT EXISTS `steps` (
-  `step_id` int(11) NOT NULL AUTO_INCREMENT,
-  `step_description` varchar(50) NOT NULL,
-  `step_number` int(11) NOT NULL,
-  `recipe_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`step_id`),
-  KEY `recipes_fk_2` (`recipe_name`),
-  CONSTRAINT `recipes_fk_2` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.steps: ~218 rows (approximately)
+	('Vietnamese Spring Rolls', 'Shrimp', 400, NULL),
+	('Turkish Lamb Kebab', 'Lamb', 800, NULL),
+	('Turkish Lamb Kebab', 'Onion', 200, NULL),
+	('Turkish Lamb Kebab', 'Garlic', NULL, '2 cloves'),
+   ('Turkish Lamb Kebab', 'Cumin', 5, NULL),
+   ('Russian Beef Stroganoff', 'Beef', 600, NULL),
+   ('Russian Beef Stroganoff', 'Onion', 150, NULL),
+   ('Russian Beef Stroganoff', 'Mushroom', 200, NULL),
+   ('Russian Beef Stroganoff', 'Cream', 150, NULL);
+	
 INSERT INTO `steps` (`step_id`, `step_description`, `step_number`, `recipe_name`) VALUES
 	(1, 'Cook pasta and bacon', 1, 'Spaghetti Carbonara'),
 	(2, 'Mix eggs and cheese', 2, 'Spaghetti Carbonara'),
@@ -2241,15 +1828,16 @@ INSERT INTO `steps` (`step_id`, `step_description`, `step_number`, `recipe_name`
 	(246, 'Saute vegetables in pan with olive oil', 2, 'Shakshuka'),
 	(247, 'Add spices and tomato sauce to pan', 3, 'Shakshuka'),
 	(248, 'Crack eggs into pan and simmer until set', 4, 'Shakshuka'),
-	(249, 'Garnish with herbs and serve hot', 5, 'Shakshuka');
-
--- Dumping structure for πίνακας cooking.tags
-CREATE TABLE IF NOT EXISTS `tags` (
-  `tag_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`tag_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.tags: ~14 rows (approximately)
+	(249, 'Garnish with herbs and serve hot', 5, 'Shakshuka'),
+	(250, 'Prepare marinade with spices', 1, 'Turkish Lamb Kebab'),
+	(251, 'Marinate lamb overnight', 2, 'Turkish Lamb Kebab'),
+	(252, 'Skewer the lamb pieces', 3, 'Turkish Lamb Kebab'),
+	(253, 'Grill the lamb skewers', 4, 'Turkish Lamb Kebab'),
+	(254, 'Slice the beef into strips', 1, 'Russian Beef Stroganoff'),
+	(255, 'Cook onions and mushrooms', 2, 'Russian Beef Stroganoff'),
+	(256, 'Add beef and cook until browned', 3, 'Russian Beef Stroganoff'),
+	(257, 'Stir in sour cream and simmer', 4, 'Russian Beef Stroganoff');
+	
 INSERT INTO `tags` (`tag_name`) VALUES
 	('brunch'),
 	('classic'),
@@ -2265,18 +1853,7 @@ INSERT INTO `tags` (`tag_name`) VALUES
 	('seafood'),
 	('spicy'),
 	('vegetarian');
-
--- Dumping structure for πίνακας cooking.tag_recipe
-CREATE TABLE IF NOT EXISTS `tag_recipe` (
-  `recipe_name` varchar(50) NOT NULL,
-  `tag_name` varchar(30) NOT NULL,
-  KEY `recipe_name` (`recipe_name`),
-  KEY `tag_name` (`tag_name`),
-  CONSTRAINT `tag_recipe_ibfk_1` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`),
-  CONSTRAINT `tag_recipe_ibfk_2` FOREIGN KEY (`tag_name`) REFERENCES `tags` (`tag_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.tag_recipe: ~192 rows (approximately)
+	
 INSERT INTO `tag_recipe` (`recipe_name`, `tag_name`) VALUES
 	('Spaghetti Carbonara', 'classic'),
 	('Spaghetti Carbonara', 'comfort food'),
@@ -2469,16 +2046,12 @@ INSERT INTO `tag_recipe` (`recipe_name`, `tag_name`) VALUES
 	('Shakshuka', 'brunch'),
 	('Shakshuka', 'healthy'),
 	('Tortilla Española', 'quick-lunch'),
-	('Tortilla Española', 'comfort food');
-
--- Dumping structure for πίνακας cooking.themes
-CREATE TABLE IF NOT EXISTS `themes` (
-  `theme_name` varchar(30) NOT NULL,
-  `theme_desc` varchar(50) NOT NULL,
-  PRIMARY KEY (`theme_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.themes: ~42 rows (approximately)
+	('Tortilla Española', 'comfort food'),
+	('Turkish Lamb Kebab', 'family meal'),
+   ('Turkish Lamb Kebab', 'comfort food'),
+   ('Russian Beef Stroganoff', 'family meal'),
+   ('Russian Beef Stroganoff', 'comfort food');
+	
 INSERT INTO `themes` (`theme_name`, `theme_desc`) VALUES
 	('African Cuisine', 'Flavors inspired by African culinary traditions'),
 	('Asian Comfort', 'Comfort and warmth from Asian cuisine'),
@@ -2522,18 +2095,7 @@ INSERT INTO `themes` (`theme_name`, `theme_desc`) VALUES
 	('Vegetarian Delights', 'Delectable dishes for vegetarians to enjoy'),
 	('Vegetarian Options', 'Focuses on plant-based ingredients'),
 	('Vietnamese Cuisine', 'Delicious flavors from Vietnamese cooking');
-
--- Dumping structure for πίνακας cooking.themes_recipes
-CREATE TABLE IF NOT EXISTS `themes_recipes` (
-  `recipe_name` varchar(50) NOT NULL,
-  `theme_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`recipe_name`,`theme_name`),
-  KEY `themes_fk_6` (`theme_name`),
-  CONSTRAINT `recipes_fk_7` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`),
-  CONSTRAINT `themes_fk_6` FOREIGN KEY (`theme_name`) REFERENCES `themes` (`theme_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table cooking.themes_recipes: ~211 rows (approximately)
+	
 INSERT INTO `themes_recipes` (`recipe_name`, `theme_name`) VALUES
 	('Doro Wat', 'African Cuisine'),
 	('Injera', 'African Cuisine'),
@@ -2745,37 +2307,8 @@ INSERT INTO `themes_recipes` (`recipe_name`, `theme_name`) VALUES
 	('Tempura Vegetables', 'Vegetarian Delights'),
 	('Greek Salad', 'Vegetarian Options'),
 	('Mapo Tofu', 'Vegetarian Options'),
-	('Vietnamese Spring Rolls', 'Vietnamese Cuisine');
-
--- Dumping structure for trigger cooking.calculate_calories
-SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-DELIMITER //
-CREATE TRIGGER calculate_calories AFTER INSERT ON recipes_ingredients
-FOR EACH ROW
-BEGIN
-    
-    DECLARE total_calories INT;
-
-    
-    IF NEW.quantity_gr IS NOT NULL THEN
-        
-        SELECT SUM(ingredients.calories_per_gram * recipes_ingredients.quantity_gr) 
-        INTO total_calories
-        FROM ingredients
-        INNER JOIN recipes_ingredients ON ingredients.ingredient_name = recipes_ingredients.ingredient_name
-        WHERE recipes_ingredients.recipe_name = NEW.recipe_name;
-
-        
-        UPDATE nutrition_information
-        SET calories = total_calories
-        WHERE recipe_name = NEW.recipe_name;
-    END IF;
-END//
-DELIMITER ;
-SET SQL_MODE=@OLDTMP_SQL_MODE;
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+	('Vietnamese Spring Rolls', 'Vietnamese Cuisine'),
+	('Turkish Lamb Kebab', 'Mediterranean Delights'),
+	('Russian Beef Stroganoff', 'Classic');
+	
+CALL generate_episodes();

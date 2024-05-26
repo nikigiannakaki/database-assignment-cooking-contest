@@ -6,7 +6,6 @@ ALTER TABLE `ingredients`
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
 
-
 ALTER TABLE `food_groups` 
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
@@ -38,6 +37,3 @@ ADD COLUMN `image_description` TEXT;
 ALTER TABLE `theme` 
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
-
-
-

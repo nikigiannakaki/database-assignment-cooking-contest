@@ -1,48 +1,4 @@
-
-Η συνομιλία άνοιξε. 7 μηνύματα. Όλα τα μηνύματα είναι αναγνωσμένα.
-
-Μετάβαση απευθείας στο περιεχόμενο
-Χρήση του Gmail με αναγνώστες οθόνης
-24 από 5.360
-db inserts pg 1
-Εισερχόμενα
-
-petrq vita <minuspetran@gmail.com>
-Συνημμένα
-Παρ 17 Μαΐ, 11:00 μ.μ. (πριν από 8 ημέρες)
-προς p28.georgantas, εγώ
-
-
- Ένα συνημμένο
-  •  Σαρώθηκε από το Gmail
-
-petrq vita
-
-
-Στις Παρ 17 Μαΐ 2024 στις 11:00 μ.μ., ο/η petrq vita <minuspetran@gmail.com> έγραψε:
-
-
-petrq vita
-ΣυνημμέναΣάβ 18 Μαΐ, 5:34 μ.μ. (πριν από 7 ημέρες)
-Στις Παρ 17 Μαΐ 2024 στις 11:00 μ.μ., ο/η petrq vita <minuspetran@gmail.com> έγραψε:
-2
-
-petrq vita
-ΣυνημμέναΤετ 22 Μαΐ, 5:06 μ.μ. (πριν από 3 ημέρες)
-Στις Δευ 20 Μαΐ 2024 στις 9:44 μ.μ., ο/η Νίκη Γιαννακάκη <nicky.giannakaki@gmail.com> έγραψε: Στις Δευ 20 Μαΐ 2024 στις 2:04 μ.μ., ο/η petrq vita <minuspetran@g
-
-petrq vita
-Συνημμένα
-Τετ 22 Μαΐ, 10:32 μ.μ. (πριν από 3 ημέρες)
-προς εγώ, p28.georgantas
-
-
- Ένα συνημμένο
-  •  Σαρώθηκε από το Gmail
-Thank you!Pic?Thanks and same to you!
 1)
-
-
 SELECT c.cook_id, CONCAT(c.first_name, ' ', c.last_name) AS cook_name, avg(g.grade) as avgcook_grade
 FROM cook c 
 JOIN contestant co ON c.cook_id = co.cook_id
@@ -57,7 +13,6 @@ GROUP BY n.cuisine_name;
 
 
 2)
-
 SELECT c.cook_id, CONCAT(c.first_name, ' ', c.last_name) AS cook_name
 FROM cook c
 WHERE c.cook_id IN (SELECT cc.cook_id
@@ -74,13 +29,11 @@ WHERE cu.cook_id IN (SELECT con.cook_id
                        FROM contestant con
                        WHERE con.episode_id IN (SELECT e.episode_id
                                                 FROM episodes e
-                                                WHERE e.season = 5));
+                                                WHERE e.season = 3));
 
 
 
 3)
-
-
 SELECT 
     c.cook_id, 
     CONCAT(c.first_name, ' ', c.last_name) AS full_name, 
@@ -99,16 +52,12 @@ ORDER BY
 
 
 4)
-
 SELECT c.cook_id, c.first_name, c.last_name
 FROM cook c
 WHERE c.cook_id NOT IN (SELECT j.cook_id
                         FROM judge j);
-
-
-5)
-
-
+						
+5) 
 SELECT DISTINCT 
     o.cook_id AS cook_id1, 
     CONCAT(c1.first_name, ' ', c1.last_name) AS cook_name1,
@@ -132,29 +81,30 @@ INNER JOIN cook c2 ON t.cook_id = c2.cook_id
 ORDER BY o.appearances, cook_id1, cook_id2;
 
 
-
-
 6)
-
-
 SELECT tr1.tag_name AS tag1, tr2.tag_name AS tag2, COUNT(*) AS tot
 FROM contestant con 
-INNER JOIN tag_recipe tr1 
-    ON con.recipe_name = tr1.recipe_name
-INNER JOIN tag_recipe tr2 
-    ON con.recipe_name = tr2.recipe_name 
-    AND tr1.tag_name < tr2.tag_name
-INNER JOIN episodes e 
-    ON con.episode_id = e.episode_id
+INNER JOIN tag_recipe tr1 ON con.recipe_name = tr1.recipe_name
+INNER JOIN tag_recipe tr2 ON con.recipe_name = tr2.recipe_name AND tr1.tag_name < tr2.tag_name
+INNER JOIN episodes e ON con.episode_id = e.episode_id
+GROUP BY tr1.tag_name, tr2.tag_name
+ORDER BY tot DESC
+LIMIT 3;
+
+force index:
+SELECT STRAIGHT_JOIN SQL_BUFFER_RESULT tr1.tag_name AS tag1, tr2.tag_name AS tag2, count(*) AS tot
+FROM episodes e
+INNER JOIN contestant con FORCE INDEX (idx_contestant_recipe_name) FORCE INDEX (idx_contestant_episode_id) ON con.episode_id = e.episode_id 
+INNER JOIN tag_recipe tr1 ON con.recipe_name = tr1.recipe_name
+INNER JOIN tag_recipe tr2 ON con.recipe_name = tr2.recipe_name AND tr1.tag_name < tr2.tag_name 
 GROUP BY tr1.tag_name, tr2.tag_name
 ORDER BY tot DESC
 LIMIT 3;
 
 7) 
-
 CREATE VIEW cook_participation AS
 WITH max_part(value) AS (
-    SELECT MAX(ap.tot) AS value
+    SELECT MAX(bloody.tot) AS value
     FROM (
         SELECT (c.cnt + j.cnt) AS tot
         FROM (
@@ -167,20 +117,20 @@ WITH max_part(value) AS (
             FROM judge
             GROUP BY cook_id
         ) j ON c.cook_id = j.cook_id
-         ) ap
-    )
+    ) bloody
+)
 SELECT con.cook_id
-    FROM (
-        SELECT cook_id, COUNT(*) AS cnt
-        FROM contestant
-        GROUP BY cook_id
-    ) con
-    INNER JOIN (
-        SELECT cook_id, COUNT(*) AS cnt
-        FROM judge
-        GROUP BY cook_id
-    ) jud ON con.cook_id = jud.cook_id
-    WHERE (con.cnt + jud.cnt) < (SELECT value FROM max_part) - 4;
+FROM (
+    SELECT cook_id, COUNT(*) AS cnt
+    FROM contestant
+    GROUP BY cook_id
+) con
+INNER JOIN (
+    SELECT cook_id, COUNT(*) AS cnt
+    FROM judge
+    GROUP BY cook_id
+) jud ON con.cook_id = jud.cook_id
+WHERE (con.cnt + jud.cnt) < (SELECT value FROM max_part) - 4;
 
 SELECT c.cook_id, CONCAT(c.first_name, ' ', c.last_name) AS cook_name
 FROM cook c
@@ -188,21 +138,25 @@ JOIN cook_participation cp ON c.cook_id = cp.cook_id;
 	
 
 8)
-
-
-SELECT ep.episode_id, SUM(re.equip) AS sumequip
+SELECT con.episode_id, SUM(re.equip) AS sumequip
 FROM (SELECT recipe_name, COUNT(*) AS equip
       FROM recipes_equipment
       GROUP BY recipe_name) re
 INNER JOIN contestant con ON con.recipe_name = re.recipe_name
-INNER JOIN episodes ep ON ep.episode_id = con.episode_id
-GROUP BY ep.episode_id
+GROUP BY con.episode_id
+ORDER BY sumequip DESC
+LIMIT 1;
+
+SELECT STRAIGHT_JOIN SQL_BUFFER_RESULT con.episode_id, SUM(re.equip) AS sumequip
+FROM (SELECT recipe_name, COUNT(*) AS equip
+      FROM recipes_equipment
+      GROUP BY recipe_name) re  
+INNER JOIN contestant con FORCE INDEX (idx_contestant_recipe_name) FORCE INDEX FOR GROUP BY (idx_contestant_episode_id) ON con.recipe_name = re.recipe_name
+GROUP BY con.episode_id
 ORDER BY sumequip DESC
 LIMIT 1;
 
 9)
-
-
 SELECT e.season, AVG(ci.carbo) AS avg_carbo
 FROM (
     SELECT 
@@ -221,12 +175,10 @@ GROUP BY
     e.season;
 
 10)
-
-
 WITH participations_per_season AS (
     SELECT
         c.national_cuisine,
-        e.season AS season,
+        e.season,
         COUNT(*) AS participation_count
     FROM
         contestant c
@@ -236,47 +188,34 @@ WITH participations_per_season AS (
     HAVING
         COUNT(*) >= 3
 ),
-consecutive_years AS (
+consecutive_seasons AS (
     SELECT
         p1.national_cuisine,
         p1.season AS season1,
         p2.season AS season2,
-        p1.participation_count AS count1,
-        p2.participation_count AS count2
+        (p1.participation_count + p2.participation_count) AS total_count
     FROM
         participations_per_season p1
         JOIN participations_per_season p2 ON p1.national_cuisine = p2.national_cuisine
         AND p1.season = p2.season - 1
-),
-valid_cuisines AS (
-    SELECT
-        national_cuisine
-    FROM
-        consecutive_years
-    WHERE
-        count1 = count2
-    GROUP BY
-        national_cuisine
-    HAVING
-        COUNT(*) = 1
 )
 SELECT
-    c.national_cuisine,
-    c.season1,
-    c.season2,
-    c.count1 AS participation_count
+    c1.national_cuisine,
+    c2.national_cuisine,
+    c1.season1,
+    c1.season2,
+    c1.total_count
 FROM
-    consecutive_years c
+    consecutive_seasons c1
 JOIN
-    valid_cuisines v ON c.national_cuisine = v.national_cuisine
-WHERE
-    c.count1 = c.count2
+    consecutive_seasons c2 ON c1.total_count = c2.total_count
+    AND c1.national_cuisine < c2.national_cuisine
+    AND c1.season1 = c2.season1
+    AND c1.season2 = c2.season2
 ORDER BY 
-	season1, participation_count;
-	
-	
-11)
+    c1.season1, c1.total_count;
 
+11) 
 SELECT 
     jc.cook_id AS judge_cook_id,
     CONCAT(jc.first_name, ' ', jc.last_name) AS judge_name,
@@ -300,11 +239,7 @@ ORDER BY
 LIMIT 5;
 
 
-
-
 12)
-
-
 SELECT 
     season,
     number_of_episode,
@@ -329,18 +264,18 @@ WHERE
 ORDER BY 
     season;
 	
-13) #douleyei gia grades me cook_id
+13) 
 SELECT gr.episode_id, ROUND(SUM(c.priority) / 3 + SUM(jc.priority) / 10)  AS professional_grade
 FROM grades gr
-JOIN cook c ON gr.contestant_id = c.cook_id
-JOIN cook jc ON gr.judge_id = jc.cook_id
+JOIN contestant ct on gr.contestant_id = ct.contestant_id
+JOIN cook c ON ct.cook_id = c.cook_id
+JOIN judge j ON gr.judge_id = j.judge_id
+JOIN cook jc ON j.cook_id = jc.cook_id
 GROUP BY episode_id
 ORDER BY professional_grade, RAND()
 LIMIT 1;
 
-14) 
-
-
+14) #lathos
 SELECT 
     theme_name,
     COUNT(*) AS participation_count
@@ -353,8 +288,6 @@ ORDER BY
 LIMIT 1;
 
 15)
-
-
 SELECT 
     fg.group_name
 FROM 
@@ -363,13 +296,9 @@ LEFT JOIN
     ingredients i ON fg.group_name = i.group_name
 LEFT JOIN 
     recipes_ingredients ri ON i.ingredient_name = ri.ingredient_name
-INNER JOIN 
+LEFT JOIN 
     contestant c ON ri.recipe_name = c.recipe_name
 GROUP BY 
     fg.group_name
 HAVING 
     COUNT(DISTINCT ri.recipe_name) = 0;
-
-
-queries.txt
-Εμφάνιση queries.txt.
