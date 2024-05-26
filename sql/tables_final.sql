@@ -516,25 +516,7 @@ CREATE TABLE `nutrition_information` (
   KEY `recipe_name` (`recipe_name`),
   CONSTRAINT `nutrition_information_ibfk_1` FOREIGN KEY (`recipe_name`) REFERENCES `recipes` (`recipe_name`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=LATIN1_SWEDISH_CI;
-/*
-CREATE INDEX idx_contestant_cook_id ON contestant (cook_id);
-CREATE INDEX idx_contestant_episode_id ON contestant (episode_id);
-CREATE INDEX idx_contestant_recipe_name ON contestant (recipe_name);
-
-
-CREATE INDEX idx_judge_episode_id ON judge (episode_id);
-CREATE INDEX idx_judge_cook_id ON judge (cook_id);
-
-
-CREATE INDEX idx_tag_recipe_tag_name ON tag_recipe (tag_name);
-*/
 
 CREATE INDEX idx_cook_age_in_years ON cook (age_in_years);
 
-
 CREATE INDEX idx_episodes_season ON episodes (season);
-
-/*
-CREATE INDEX idx_grades_contestant_id ON grades (contestant_id);
-CREATE INDEX idx_grades_judge_id ON grades (judge_id);  
-*/
