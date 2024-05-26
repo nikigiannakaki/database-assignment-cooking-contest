@@ -104,7 +104,7 @@ LIMIT 3;
 7) 
 CREATE VIEW cook_participation AS
 WITH max_part(value) AS (
-    SELECT MAX(bloody.tot) AS value
+    SELECT MAX(ap.tot) AS value
     FROM (
         SELECT (c.cnt + j.cnt) AS tot
         FROM (
@@ -117,7 +117,7 @@ WITH max_part(value) AS (
             FROM judge
             GROUP BY cook_id
         ) j ON c.cook_id = j.cook_id
-    ) bloody
+    ) ap
 )
 SELECT con.cook_id
 FROM (
