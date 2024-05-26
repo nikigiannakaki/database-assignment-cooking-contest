@@ -31,7 +31,8 @@ INSERT INTO `food_groups` (`group_name`, `group_description`) VALUES
 	('White Meat', 'In culinary terms, white meat is meat which is pale in color before and after cooking.'),
 	('Eggs', 'Bird and reptile eggs consist of a protective eggshell, albumen (egg white), and vitellus (egg yolk), contained within various thin membranes.'),
 	('Fish and Seafood', 'Seafood encompasses all commercially obtained freshwater and saltwater fish, molluscan shellfish, and crustaceans.'),
-	('Added fats and oils, olives and nuts', 'This group includes added fats and oils such as butter, margarine, olive oil, and nut oils, as well as olives and various types of nuts.');
+	('Added fats and oils, olives and nuts', 'This group includes added fats and oils such as butter, margarine, olive oil, and nut oils, as well as olives and various types of nuts.'),
+	('Sweets and Desserts', 'Includes cakes, cookies, candies, and other sweet treats, which should be consumed in moderation.');
 
 INSERT INTO `ingredients` (`ingredient_name`, `calories_per_gram`, `group_name`) VALUES
 	('Apple', 1, 'Fruits'),
