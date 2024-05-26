@@ -30,10 +30,10 @@ ALTER TABLE `meal_recipe`
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
 
-ALTER TABLE `tag` 
+ALTER TABLE `tags` 
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
 
-ALTER TABLE `theme` 
+ALTER TABLE `themes` 
 ADD COLUMN `image` BLOB,
 ADD COLUMN `image_description` TEXT;
