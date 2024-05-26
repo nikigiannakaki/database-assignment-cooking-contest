@@ -147,6 +147,7 @@ GROUP BY con.episode_id
 ORDER BY sumequip DESC
 LIMIT 1;
 
+force index:
 SELECT STRAIGHT_JOIN SQL_BUFFER_RESULT con.episode_id, SUM(re.equip) AS sumequip
 FROM (SELECT recipe_name, COUNT(*) AS equip
       FROM recipes_equipment
