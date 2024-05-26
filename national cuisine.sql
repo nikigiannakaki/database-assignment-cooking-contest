@@ -1,0 +1,16 @@
+INSERT INTO national_cuisine (cuisine_name) VALUES
+('Italian'),
+('French'),
+('Chinese'),
+('Indian'),
+('Mexican'),
+('Japanese'),
+('Thai'),
+('Greek'),
+('Spanish'),
+('Lebanese'),
+('Vietnamese'),
+('American'),
+('Brazilian'),
+('Korean'),
+('Ethiopian');
